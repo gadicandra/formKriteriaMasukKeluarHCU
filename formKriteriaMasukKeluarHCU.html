@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Formulir Kriteria Keluar / Masuk HCU</title>
+
+    <style>
+      .border{
+        border-width: 2px !important;
+        border-color: black !important;
+      }
+      
+      .border-bottom{
+        border-width: 0 0 2px 0 !important;
+      }
+
+      .border-bottom-left{
+        border-width: 0 0 2px 2px !important;
+      }
+
+      .border-right{
+        border-width: 0 2px 0 0 !important;
+      }
+
+      .border-left{
+        border-width: 0 0 0 2px !important;
+      }
+
+      #hilang-margin1, #hilang-margin2{
+        margin: 0 -15px;
+      }
+
+      .edit-margin{
+        margin: 5px 0 !important;
+      }
+
+      h5{
+        margin: 8px 0;
+      }
+
+      p{
+        font-size: 20px;
+        margin: 4px 0;
+      }
+
+      .marginan{
+        margin: 0;
+        padding: 7px 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="col-md-12 border">
+      <form>
+        <!-- Batas Awal Judul-->
+        <div class="row border border-bottom">
+          <div class="col-12">
+            <h5 class="text-center"><b><u>FORMULIR KRITERIA KELUAR / MASUK HCU</u></b></h5>
+          </div>
+        </div>
+        <!-- Batas Akhir Judul-->
+        <!-- Batas Awal Indentitas Pasien-->
+        <div class="form-group row border border-bottom" id="hilang-margin1">
+          <label for="no_rekam_medis" class="col-sm-3 col-form-label edit-margin">Nomor Rekam Medis </label>
+          <div class="col-sm-1 align-self-center">:</div>
+          <input type="text" class="form-control-plaintext col-sm-7 edit-margin" id="no_rekam_medis" v-model="pasien.no_rm" readonly>
+          <label for="nama_pasien" class="col-3 col-form-label edit-margin">Nama Pasien</label>
+          <div class="col-sm-1 align-self-center">:</div>
+          <input type="text" class="form-control-plaintext col-sm-7 edit-margin" id="nama_pasien" v-model="pasien.nama" readonly>
+          <label for="tanggal_lahir" class="col-3 col-form-label edit-margin">Tanggal Lahir</label>
+          <div class="col-sm-1 align-self-center">:</div>
+          <input type="text" class="form-control-plaintext col-sm-7 edit-margin" id="tanggal_lahir" v-model="pasien.tgl_lahir" readonly>
+        </div>
+        <!-- Batas Akhir Identitas Pasien-->
+        <!-- Batas Awal Waktu Asesmen-->
+        <div class="form-group row border border-bottom" id="hilang-margin2">
+          <label for="tanggal_asesmen" class="col-sm-3 col-form-label edit-margin">Asesmen Awal/Ulang Tanggal</label>
+          <div class="col-sm-1 align-self-center">:</div>
+          <input type="date" class="form-control-date col-sm-6 edit-margin">
+          <label for="pukul_asesmen" class="col-sm-3 col-form-label edit-margin">Pukul</label>
+          <div class="col-sm-1 align-self-center">:</div>
+          <input type="text" class="form-control-text col-sm-6 edit-margin">
+        </div>
+        <!-- Batas Akhir Waktu Asesmen-->
+        <!-- Judul Kriteria Masuk HCU-->
+        <div class="row border border-bottom">
+          <div class="col-md-12">
+            <h5><b>KRITERIA MASUK HCU</b></h5>
+          </div>
+        </div>
+        <!-- Batas Awal Kriteria Masuk HCU-->
+        <div class="row border border-bottom" style="padding: 0 20px">
+          <p><b>1. Sistem Kardiovaskuler</b></p>
+          <div class="form-check col-md-12">
+            <input class="form-check-input" type="checkbox" id="check-k-1">
+            <label class="form-check-label col-5" for="check-k-1">
+              Miokard Infark dengan Hemodiamika Stabil
+            </label>
+            <input class="form-check-input" type="checkbox" id="check-k-2">
+            <label class="form-check-label col-6" for="check-k-2">
+              Gangguan irama jantung dengan hemodinamika stabil
+            </label>
+          </div>
+          <div class="form-check col-md-12">
+            <input class="form-check-input" type="checkbox" id="check-k-3">
+            <label class="form-check-label col-5" for="check-k-3">
+              Gangguan jantung kongestif dengan NYHA 1 & 2
+            </label>
+            <input class="form-check-input" type="checkbox" id="check-k-4">
+            <label class="form-check-label col-6" for="check-k-4">
+              Hipertensi "Urgensi" tanpa ada gagal target organ
+            </label>
+          </div>
+          <div class="form-check col-md-12">
+            <input class="form-check-input" type="checkbox" id="check-k-5">
+            <label class="form-check-label col-11" for="check-k-5">
+              Semua jenis syok
+            </label>
+          </div>
+          <p><b>2. Sistem Pernafasan</b></p>
+          <div class="form-check col-md-12">
+            <input class="form-check-input" type="checkbox" id="check-p1-1">
+            <label class="form-check-label col-12" for="check-p1-1">
+              Gangguan pernafasan yang memerlukan fisioterapi intensif dan agresif namun tidak memerlukan alat bantu nafas
+            </label>
+          </div>
+          <p><b>3. Sistem Syaraf</b></p>
+          <div class="form-check col-md-12">
+            <input class="form-check-input" type="checkbox" id="check-s-1">
+            <label class="form-check-label col-12" for="check-s-1">
+              Cedera kepala sedang sampai berat/stroke yangs stabil dan memerlukan tirah baring dan memerlukan jalan nafas secara khusus, seperti hisap lendir berkala
+            </label>
+          </div>
+          <div class="form-check col-md-12">
+            <input class="form-check-input" type="checkbox" id="check-s-2">
+            <label class="form-check-label col-12" for="check-s-2">
+              Cedera tulang belakang bagian leher yang stabil
+            </label>
+          </div>
+          <p><b>4. Sistem Pencernaan</b></p>
+          <div class="form-check col-md-12">
+            <input class="form-check-input" type="checkbox" id="check-p2-1">
+            <label class="form-check-label col-12" for="check-p2-1">
+              Pendarahan saluran cerna bagian atas tanpa hipotensi ortostatik dan respon baik terhadap pemberian cairan
+            </label>
+          </div>
+          <p><b>5. Sistem Endokrim</b></p>
+          <div class="form-check col-md-12">
+            <input class="form-check-input" type="checkbox" id="check-e-1">
+            <label class="form-check-label col-12" for="check-e-1">
+              Krisis "Hiperglikemia" yang memerlukan infus insulin yang konstan
+            </label>
+          </div>
+          <p><b>6. Bedah</b></p>
+          <div class="form-check col-md-12">
+            <input class="form-check-input" type="checkbox" id="check-b-1">
+            <label class="form-check-label col-12" for="check-b-1">
+              Paska operasi bedah besar dengan hemodimanik stabil tapi masih memerlukan resusitasi cairan
+          </div>
+          <div class="form-check col-md-12">
+            <input class="form-check-input" type="checkbox" id="check-b-2">
+            <label class="form-check-label col-12" for="check-b-2">
+              Paska Operasi bedah besar dengan hemodimanik
+            </label>
+          </div>
+          <div class="form-check col-md-12">
+            <input class="form-check-input" type="checkbox" id="check-b-3">
+            <label class="form-check-label col-12" for="check-b-3">
+              Pasien syok karena pendarahan
+            </label>
+          </div>
+          <p><b>7. Kebidanan dan Kandungan</b></p>
+          <div class="form-check col-md-12">
+            <input class="form-check-input" type="checkbox" id="check-kk-1">
+            <label class="form-check-label col-12" for="check-kk-1">
+              Eklamsi/Preeklamsia pada persalinan atau pasca persalinan
+            </label>
+          </div>
+          <div class="form-check col-md-12">
+            <input class="form-check-input" type="checkbox" id="check-kk-2">
+            <label class="form-check-label col-12" for="check-kk-2">
+              Pasien syok karena permasalahan Obsgyn
+            </label>
+          </div>
+          <p><b>8. Pasien Non-Transportable</b></p>
+          <div class="form-check col-md-12">
+            <input class="form-check-input" type="checkbox" id="check-nt-1">
+            <label class="form-check-label col-12" for="check-nt-1">
+              Pasien yang telah dinyatakan terminal namun termasuk kriteria non-transportable dengan informed consent terlebih dahulu
+            </label>
+          </div>
+        </div>
+        <!--Batas Akhir Kriteria Masuk HCU-->
+        <!--Batas Awal Kriteria Keluar HCU-->
+        <div class="row border border-bottom" style="padding-left: 15px">
+          <h5><b>KRITERIA KELUAR HCU</b></h5>
+        </div>
+        <div class="row border border-bottom">
+          <h5 class="col text-center marginan border border-bottom"> Pasien Stabil</h5>
+          <h5 class="col text-center marginan border border-bottom-left"> Pasien Perburukan</h5>
+          <div class="form-check col-md-12">
+            <input class="form-check-input" type="checkbox" id="check-sta-1" style="margin-left: -10px;">
+            <label class="form-check-label col-6 border border-right" for="check-sta-1">
+              Tidak ada ancaman sumbatan jalan nafas
+            </label>
+            <input class="form-check-input" type="checkbox" id="check-per-1" style="margin-left: 5px;">
+            <label class="form-check-label col-5" for="check-per-1" style="margin-left: 25px;">
+              Ada ancaman sumbatan jalan nafas
+            </label>
+          </div>
+          <div class="form-check col-md-12">
+            <input class="form-check-input" type="checkbox" id="check-sta-2" style="margin-left: -10px;">
+            <label class="form-check-label col-6 border border-right" for="check-sta-2">
+              Oksigenasi adekuat 
+            </label>
+            <input class="form-check-input" type="checkbox" id="check-per-2" style="margin-left: 5px;">
+            <label class="form-check-label col-5" for="check-per-2" style="margin-left: 25px;">
+              Oksigenasi tidak adekuat 
+            </label>
+          </div>
+          <div class="form-check col-md-12">
+            <input class="form-check-input" type="checkbox" id="check-sta-3" style="margin-left: -10px;">
+            <label class="form-check-label col-6 border border-right" for="check-sta-3">
+              Tidak dalam keadaan syok 
+            </label>
+            <input class="form-check-input" type="checkbox" id="check-per-3" style="margin-left: 5px;">
+            <label class="form-check-label col-5" for="check-per-3" style="margin-left: 25px;">
+              Keadaan Syok tak terkendali 
+            </label>
+          </div>
+          <div class="form-check col-md-12">
+            <input class="form-check-input" type="checkbox" id="check-sta-4" style="margin-left: -10px;">
+            <label class="form-check-label col-6 border border-right" for="check-sta-4">
+              Tidak kejang
+            </label>
+            <input class="form-check-input" type="checkbox" id="check-per-4" style="margin-left: 5px;">
+            <label class="form-check-label col-5" for="check-per-4" style="margin-left: 25px;">
+              Kejang tanpa respon baik terhadap obat
+            </label>
+          </div>
+        </div>
+        <!--Batas Akhir Kriteria Keluar HCU-->
+        <!--Batas Awal Tindak Lanjut-->
+        <div class="row border border-bottom" style="padding-left: 15px">
+          <h5><b>TINDAK LANJUT</b></h5>
+        </div>
+        <div class="row border border-bottom">
+          <div class="form-check col-md-6 align-self-center">
+            <input class="form-check-input" type="checkbox" id="check-sta-4" style="margin-left: -10px;">
+            <label class="form-check-label row-6" for="check-sta-4" style="margin-left: 10px;">
+              Tidak kejang
+            </label>
+          </div>
+          <div class="form-check col-md-6 border border-left" style="padding-left: 10px;">
+            <input class="form-check-input" type="checkbox" id="check-per-4" style="margin-left: 5px;">
+            <label class="form-check-label row-5" for="check-per-4" style="margin-left: 25px;">
+              Kejang tanpa respon baik terhadap obat
+            </label>
+            <input class="form-check-input row" type="checkbox" id="check-per-4" style="margin-left: 5px;">
+            <label class="form-check-label row-5" for="check-per-4" style="margin-left: 25px;">
+              Kejang tanpa respon baik terhadap obat
+            </label>
+          </div>
+        </div>
+        <!--Batas Akhir Tindak Lanjut-->
+        <!--Batas Awal Tanda Tangan-->
+        <div class="row justify-content-end" style="margin-top: 50px;">
+          <div class="col">
+            <div class="form-group row justify-content-end">
+              <label class="col-sm-1 col-form-label">Bandung,</label>
+              <input type="date" class="form-control-date col-sm-2" style="margin-right: 80px;">
+            </div>
+          </div>
+          <div class="w-100"></div>
+          <div class="row justify-content-end" style="margin-right: 5px;">
+            <div>Dokter Penanggung Jawab Pasien/Dokter Jaga</div>
+          </div>
+          <div class="w-100"></div>
+          <div>(.............................................................................................)</div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

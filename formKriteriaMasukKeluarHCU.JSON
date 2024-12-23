@@ -1,0 +1,142 @@
+{
+    "sample":{
+        "pasien":{
+            "no_rm": "123456789",
+            "nama": "testing",
+            "tgl_lahir": "1945-07-17",
+            "tgl_lahir_indo": "17 Agustus 1945",
+            "kelamin": "L"
+        },
+        "asesmen":{
+            "tanggal_asesmen": "2024-12-19",
+            "tanggal_asesmen_indo": "19 Desember 2024",
+            "pukul": "01:55"
+        },
+        "kriteria_masuk_HCU":{
+            "sistem_kardiovaskuler":{
+                "miokard": false,
+                "gangguan_jantung": false,
+                "semua_jenis": false,
+                "gangguan_irama": false,
+                "hipertensi": false
+            },
+            "sistem_pernafasan":{
+                "gangguan_pernafasan": false
+            },
+            "sistem_syaraf":{
+                "cedera_kepala": false,
+                "cedera_tulang": false
+            },
+            "sistem_pencernaan":{
+                "pendarahan_saluran": false
+            },
+            "sistem_endokrin":{
+                "krisis_hiperglikemia": false
+            },
+            "bedah":{
+                "perlu_resusitasi": false,
+                "hemodinamik": false,
+                "pasien_syok_pendarahan": false
+            },
+            "kebidanan_dan_kandungan":{
+                "eklamsi": false,
+                "pasien_syok_obsgyn": false
+            },
+            "pasien_nontransportable":{
+                "kriteria_nontrasportable": false
+            }
+        },
+        "kriteria_keluar_HCU":{
+            "pasien_stabil":{
+                "tidak_ada_ancaman": false,
+                "oksigenasi_adekuat": false,
+                "tidak_syok": false,
+                "tidak_kejang": false
+            },
+            "pasien_perburukan":{
+                "ada_ancaman": false,
+                "oksigenasi_tidak_adekuat": false,
+                "syok_tak_terkendali": false,
+                "kejang": false
+            }
+        },
+        "tindak_lanjut":{
+            "pindah": false,
+            "tindakan_lifesaving": false,
+            "rujuk": false
+        },
+        "selesai_tanggal": "2024-12-20",
+        "selesai_tanggal_indo": "20 Desember 2024",
+        "nama_dokter": "testing"
+    },
+
+    "default":{
+        "pasien":{
+            "no_rm": "",
+            "nama": "",
+            "tgl_lahir": "",
+            "tgl_lahir_indo": "",
+            "kelamin": ""
+        },
+        "asesmen":{
+            "asesmen_awal": "",
+            "pukul": ""
+        },
+        "kriteria_masuk_HCU":{
+            "sistem_kardiovaskuler":{
+                "miokard": false,
+                "gangguan_jantung": false,
+                "semua_jenis": false,
+                "gangguan_irama": false,
+                "hipertensi": false
+            },
+            "sistem_pernafasan":{
+                "gangguan_pernafasan": false
+            },
+            "sistem_syaraf":{
+                "cedera_kepala": false,
+                "cedera_tulang": false
+            },
+            "sistem_pencernaan":{
+                "pendarahan_saluran": false
+            },
+            "sistem_endokrin":{
+                "krisis_hiperglikemia": false
+            },
+            "bedah":{
+                "perlu_resusitasi": false,
+                "hemodinamik": false,
+                "pasien_syok_pendarahan": false
+            },
+            "kebidanan_dan_kandungan":{
+                "eklamsi": false,
+                "pasien_syok_obsgyn": false
+            },
+            "pasien_nontransportable":{
+                "kriteria_nontrasportable": false
+            }
+        },
+        "kriteria_keluar_HCU":{
+            "pasien_stabil":{
+                "tidak_ada_ancaman": false,
+                "oksigenasi_adekuat": false,
+                "tidak_syok": false,
+                "tidak_kejang": false
+            },
+            "pasien_perburukan":{
+                "ada_ancaman": false,
+                "oksigenasi_tidak_adekuat": false,
+                "syok_tak_terkendali": false,
+                "kejang": false
+            }
+        },
+        "tindak_lanjut":{
+            "pindah": false,
+            "tindakan_lifesaving": false,
+            "rujuk": false
+        },
+        "selesai_tanggal": "",
+        "selesai_tanggal_indo": "",
+        "nama_dokter": ""
+    }
+}
