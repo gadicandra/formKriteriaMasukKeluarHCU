@@ -1,0 +1,746 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "default": {},
+    "title": "Root Schema",
+    "required": [
+        "pasien",
+        "medis"
+    ],
+    "properties": {
+        "pasien": {
+            "type": "object",
+            "default": {},
+            "title": "The pasien Schema",
+            "required": [
+                "no_rm",
+                "nama",
+                "tgl_lahir",
+                "tgl_lahir_indo"
+            ],
+            "properties": {
+                "no_rm": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The no_rm Schema",
+                    "examples": [
+                        ""
+                    ]
+                },
+                "nama": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The nama Schema",
+                    "examples": [
+                        ""
+                    ]
+                },
+                "tgl_lahir": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The tgl_lahir Schema",
+                    "examples": [
+                        ""
+                    ]
+                },
+                "tgl_lahir_indo": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The tgl_lahir_indo Schema",
+                    "examples": [
+                        ""
+                    ]
+                }
+            },
+            "examples": [{
+                "no_rm": "",
+                "nama": "",
+                "tgl_lahir": "",
+                "tgl_lahir_indo": ""
+            }]
+        },
+        "medis": {
+            "type": "object",
+            "default": {},
+            "title": "The medis Schema",
+            "required": [
+                "asesmen",
+                "kriteria_masuk_HCU",
+                "kriteria_keluar_HCU",
+                "tindak_lanjut",
+                "selesai_tanggal",
+                "selesai_tanggal_indo",
+                "nama_dokter"
+            ],
+            "properties": {
+                "asesmen": {
+                    "type": "object",
+                    "default": {},
+                    "title": "The asesmen Schema",
+                    "required": [
+                        "tanggal_asesmen",
+                        "tanggal_asesmen_indo",
+                        "pukul"
+                    ],
+                    "properties": {
+                        "tanggal_asesmen": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The tanggal_asesmen Schema",
+                            "examples": [
+                                ""
+                            ]
+                        },
+                        "tanggal_asesmen_indo": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The tanggal_asesmen_indo Schema",
+                            "examples": [
+                                ""
+                            ]
+                        },
+                        "pukul": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The pukul Schema",
+                            "examples": [
+                                ""
+                            ]
+                        }
+                    },
+                    "examples": [{
+                        "tanggal_asesmen": "",
+                        "tanggal_asesmen_indo": "",
+                        "pukul": ""
+                    }]
+                },
+                "kriteria_masuk_HCU": {
+                    "type": "object",
+                    "default": {},
+                    "title": "The kriteria_masuk_HCU Schema",
+                    "required": [
+                        "sistem_kardiovaskuler",
+                        "sistem_pernafasan",
+                        "sistem_syaraf",
+                        "sistem_pencernaan",
+                        "sistem_endokrin",
+                        "bedah",
+                        "kebidanan_dan_kandungan",
+                        "pasien_nontransportable"
+                    ],
+                    "properties": {
+                        "sistem_kardiovaskuler": {
+                            "type": "object",
+                            "default": {},
+                            "title": "The sistem_kardiovaskuler Schema",
+                            "required": [
+                                "miokard",
+                                "gangguan_jantung",
+                                "semua_jenis",
+                                "gangguan_irama",
+                                "hipertensi"
+                            ],
+                            "properties": {
+                                "miokard": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The miokard Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                },
+                                "gangguan_jantung": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The gangguan_jantung Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                },
+                                "semua_jenis": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The semua_jenis Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                },
+                                "gangguan_irama": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The gangguan_irama Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                },
+                                "hipertensi": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The hipertensi Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                }
+                            },
+                            "examples": [{
+                                "miokard": false,
+                                "gangguan_jantung": false,
+                                "semua_jenis": false,
+                                "gangguan_irama": false,
+                                "hipertensi": false
+                            }]
+                        },
+                        "sistem_pernafasan": {
+                            "type": "object",
+                            "default": {},
+                            "title": "The sistem_pernafasan Schema",
+                            "required": [
+                                "gangguan_pernafasan"
+                            ],
+                            "properties": {
+                                "gangguan_pernafasan": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The gangguan_pernafasan Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                }
+                            },
+                            "examples": [{
+                                "gangguan_pernafasan": false
+                            }]
+                        },
+                        "sistem_syaraf": {
+                            "type": "object",
+                            "default": {},
+                            "title": "The sistem_syaraf Schema",
+                            "required": [
+                                "cedera_kepala",
+                                "cedera_tulang"
+                            ],
+                            "properties": {
+                                "cedera_kepala": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The cedera_kepala Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                },
+                                "cedera_tulang": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The cedera_tulang Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                }
+                            },
+                            "examples": [{
+                                "cedera_kepala": false,
+                                "cedera_tulang": false
+                            }]
+                        },
+                        "sistem_pencernaan": {
+                            "type": "object",
+                            "default": {},
+                            "title": "The sistem_pencernaan Schema",
+                            "required": [
+                                "pendarahan_saluran"
+                            ],
+                            "properties": {
+                                "pendarahan_saluran": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The pendarahan_saluran Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                }
+                            },
+                            "examples": [{
+                                "pendarahan_saluran": false
+                            }]
+                        },
+                        "sistem_endokrin": {
+                            "type": "object",
+                            "default": {},
+                            "title": "The sistem_endokrin Schema",
+                            "required": [
+                                "krisis_hiperglikemia"
+                            ],
+                            "properties": {
+                                "krisis_hiperglikemia": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The krisis_hiperglikemia Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                }
+                            },
+                            "examples": [{
+                                "krisis_hiperglikemia": false
+                            }]
+                        },
+                        "bedah": {
+                            "type": "object",
+                            "default": {},
+                            "title": "The bedah Schema",
+                            "required": [
+                                "perlu_resusitasi",
+                                "hemodinamik",
+                                "pasien_syok_pendarahan"
+                            ],
+                            "properties": {
+                                "perlu_resusitasi": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The perlu_resusitasi Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                },
+                                "hemodinamik": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The hemodinamik Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                },
+                                "pasien_syok_pendarahan": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The pasien_syok_pendarahan Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                }
+                            },
+                            "examples": [{
+                                "perlu_resusitasi": false,
+                                "hemodinamik": false,
+                                "pasien_syok_pendarahan": false
+                            }]
+                        },
+                        "kebidanan_dan_kandungan": {
+                            "type": "object",
+                            "default": {},
+                            "title": "The kebidanan_dan_kandungan Schema",
+                            "required": [
+                                "eklamsi",
+                                "pasien_syok_obsgyn"
+                            ],
+                            "properties": {
+                                "eklamsi": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The eklamsi Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                },
+                                "pasien_syok_obsgyn": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The pasien_syok_obsgyn Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                }
+                            },
+                            "examples": [{
+                                "eklamsi": false,
+                                "pasien_syok_obsgyn": false
+                            }]
+                        },
+                        "pasien_nontransportable": {
+                            "type": "object",
+                            "default": {},
+                            "title": "The pasien_nontransportable Schema",
+                            "required": [
+                                "kriteria_nontrasportable"
+                            ],
+                            "properties": {
+                                "kriteria_nontrasportable": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The kriteria_nontrasportable Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                }
+                            },
+                            "examples": [{
+                                "kriteria_nontrasportable": false
+                            }]
+                        }
+                    },
+                    "examples": [{
+                        "sistem_kardiovaskuler": {
+                            "miokard": false,
+                            "gangguan_jantung": false,
+                            "semua_jenis": false,
+                            "gangguan_irama": false,
+                            "hipertensi": false
+                        },
+                        "sistem_pernafasan": {
+                            "gangguan_pernafasan": false
+                        },
+                        "sistem_syaraf": {
+                            "cedera_kepala": false,
+                            "cedera_tulang": false
+                        },
+                        "sistem_pencernaan": {
+                            "pendarahan_saluran": false
+                        },
+                        "sistem_endokrin": {
+                            "krisis_hiperglikemia": false
+                        },
+                        "bedah": {
+                            "perlu_resusitasi": false,
+                            "hemodinamik": false,
+                            "pasien_syok_pendarahan": false
+                        },
+                        "kebidanan_dan_kandungan": {
+                            "eklamsi": false,
+                            "pasien_syok_obsgyn": false
+                        },
+                        "pasien_nontransportable": {
+                            "kriteria_nontrasportable": false
+                        }
+                    }]
+                },
+                "kriteria_keluar_HCU": {
+                    "type": "object",
+                    "default": {},
+                    "title": "The kriteria_keluar_HCU Schema",
+                    "required": [
+                        "pasien_stabil",
+                        "pasien_perburukan"
+                    ],
+                    "properties": {
+                        "pasien_stabil": {
+                            "type": "object",
+                            "default": {},
+                            "title": "The pasien_stabil Schema",
+                            "required": [
+                                "tidak_ada_ancaman",
+                                "oksigenasi_adekuat",
+                                "tidak_syok",
+                                "tidak_kejang"
+                            ],
+                            "properties": {
+                                "tidak_ada_ancaman": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The tidak_ada_ancaman Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                },
+                                "oksigenasi_adekuat": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The oksigenasi_adekuat Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                },
+                                "tidak_syok": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The tidak_syok Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                },
+                                "tidak_kejang": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The tidak_kejang Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                }
+                            },
+                            "examples": [{
+                                "tidak_ada_ancaman": false,
+                                "oksigenasi_adekuat": false,
+                                "tidak_syok": false,
+                                "tidak_kejang": false
+                            }]
+                        },
+                        "pasien_perburukan": {
+                            "type": "object",
+                            "default": {},
+                            "title": "The pasien_perburukan Schema",
+                            "required": [
+                                "ada_ancaman",
+                                "oksigenasi_tidak_adekuat",
+                                "syok_tak_terkendali",
+                                "kejang"
+                            ],
+                            "properties": {
+                                "ada_ancaman": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The ada_ancaman Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                },
+                                "oksigenasi_tidak_adekuat": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The oksigenasi_tidak_adekuat Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                },
+                                "syok_tak_terkendali": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The syok_tak_terkendali Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                },
+                                "kejang": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The kejang Schema",
+                                    "examples": [
+                                        false
+                                    ]
+                                }
+                            },
+                            "examples": [{
+                                "ada_ancaman": false,
+                                "oksigenasi_tidak_adekuat": false,
+                                "syok_tak_terkendali": false,
+                                "kejang": false
+                            }]
+                        }
+                    },
+                    "examples": [{
+                        "pasien_stabil": {
+                            "tidak_ada_ancaman": false,
+                            "oksigenasi_adekuat": false,
+                            "tidak_syok": false,
+                            "tidak_kejang": false
+                        },
+                        "pasien_perburukan": {
+                            "ada_ancaman": false,
+                            "oksigenasi_tidak_adekuat": false,
+                            "syok_tak_terkendali": false,
+                            "kejang": false
+                        }
+                    }]
+                },
+                "tindak_lanjut": {
+                    "type": "object",
+                    "default": {},
+                    "title": "The tindak_lanjut Schema",
+                    "required": [
+                        "pindah",
+                        "tindakan_lifesaving",
+                        "rujuk"
+                    ],
+                    "properties": {
+                        "pindah": {
+                            "type": "boolean",
+                            "default": false,
+                            "title": "The pindah Schema",
+                            "examples": [
+                                false
+                            ]
+                        },
+                        "tindakan_lifesaving": {
+                            "type": "boolean",
+                            "default": false,
+                            "title": "The tindakan_lifesaving Schema",
+                            "examples": [
+                                false
+                            ]
+                        },
+                        "rujuk": {
+                            "type": "boolean",
+                            "default": false,
+                            "title": "The rujuk Schema",
+                            "examples": [
+                                false
+                            ]
+                        }
+                    },
+                    "examples": [{
+                        "pindah": false,
+                        "tindakan_lifesaving": false,
+                        "rujuk": false
+                    }]
+                },
+                "selesai_tanggal": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The selesai_tanggal Schema",
+                    "examples": [
+                        ""
+                    ]
+                },
+                "selesai_tanggal_indo": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The selesai_tanggal_indo Schema",
+                    "examples": [
+                        ""
+                    ]
+                },
+                "nama_dokter": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The nama_dokter Schema",
+                    "examples": [
+                        ""
+                    ]
+                }
+            },
+            "examples": [{
+                "asesmen": {
+                    "tanggal_asesmen": "",
+                    "tanggal_asesmen_indo": "",
+                    "pukul": ""
+                },
+                "kriteria_masuk_HCU": {
+                    "sistem_kardiovaskuler": {
+                        "miokard": false,
+                        "gangguan_jantung": false,
+                        "semua_jenis": false,
+                        "gangguan_irama": false,
+                        "hipertensi": false
+                    },
+                    "sistem_pernafasan": {
+                        "gangguan_pernafasan": false
+                    },
+                    "sistem_syaraf": {
+                        "cedera_kepala": false,
+                        "cedera_tulang": false
+                    },
+                    "sistem_pencernaan": {
+                        "pendarahan_saluran": false
+                    },
+                    "sistem_endokrin": {
+                        "krisis_hiperglikemia": false
+                    },
+                    "bedah": {
+                        "perlu_resusitasi": false,
+                        "hemodinamik": false,
+                        "pasien_syok_pendarahan": false
+                    },
+                    "kebidanan_dan_kandungan": {
+                        "eklamsi": false,
+                        "pasien_syok_obsgyn": false
+                    },
+                    "pasien_nontransportable": {
+                        "kriteria_nontrasportable": false
+                    }
+                },
+                "kriteria_keluar_HCU": {
+                    "pasien_stabil": {
+                        "tidak_ada_ancaman": false,
+                        "oksigenasi_adekuat": false,
+                        "tidak_syok": false,
+                        "tidak_kejang": false
+                    },
+                    "pasien_perburukan": {
+                        "ada_ancaman": false,
+                        "oksigenasi_tidak_adekuat": false,
+                        "syok_tak_terkendali": false,
+                        "kejang": false
+                    }
+                },
+                "tindak_lanjut": {
+                    "pindah": false,
+                    "tindakan_lifesaving": false,
+                    "rujuk": false
+                },
+                "selesai_tanggal": "",
+                "selesai_tanggal_indo": "",
+                "nama_dokter": ""
+            }]
+        }
+    },
+    "examples": [{
+        "pasien": {
+            "no_rm": "",
+            "nama": "",
+            "tgl_lahir": "",
+            "tgl_lahir_indo": ""
+        },
+        "medis": {
+            "asesmen": {
+                "tanggal_asesmen": "",
+                "tanggal_asesmen_indo": "",
+                "pukul": ""
+            },
+            "kriteria_masuk_HCU": {
+                "sistem_kardiovaskuler": {
+                    "miokard": false,
+                    "gangguan_jantung": false,
+                    "semua_jenis": false,
+                    "gangguan_irama": false,
+                    "hipertensi": false
+                },
+                "sistem_pernafasan": {
+                    "gangguan_pernafasan": false
+                },
+                "sistem_syaraf": {
+                    "cedera_kepala": false,
+                    "cedera_tulang": false
+                },
+                "sistem_pencernaan": {
+                    "pendarahan_saluran": false
+                },
+                "sistem_endokrin": {
+                    "krisis_hiperglikemia": false
+                },
+                "bedah": {
+                    "perlu_resusitasi": false,
+                    "hemodinamik": false,
+                    "pasien_syok_pendarahan": false
+                },
+                "kebidanan_dan_kandungan": {
+                    "eklamsi": false,
+                    "pasien_syok_obsgyn": false
+                },
+                "pasien_nontransportable": {
+                    "kriteria_nontrasportable": false
+                }
+            },
+            "kriteria_keluar_HCU": {
+                "pasien_stabil": {
+                    "tidak_ada_ancaman": false,
+                    "oksigenasi_adekuat": false,
+                    "tidak_syok": false,
+                    "tidak_kejang": false
+                },
+                "pasien_perburukan": {
+                    "ada_ancaman": false,
+                    "oksigenasi_tidak_adekuat": false,
+                    "syok_tak_terkendali": false,
+                    "kejang": false
+                }
+            },
+            "tindak_lanjut": {
+                "pindah": false,
+                "tindakan_lifesaving": false,
+                "rujuk": false
+            },
+            "selesai_tanggal": "",
+            "selesai_tanggal_indo": "",
+            "nama_dokter": ""
+        }
+    }]
+}
