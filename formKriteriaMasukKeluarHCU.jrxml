@@ -1,0 +1,1277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 6.20.6  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9e12d83d-1c39-4dfc-897c-515ca69d346d">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="508"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="478"/>
+	<style name="Table_TH" mode="Opaque" backcolor="rgba(240, 248, 255, 0.0)">
+		<box>
+			<pen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<topPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<leftPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<bottomPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<rightPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="rgba(191, 225, 255, 0.0)">
+		<box>
+			<pen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<topPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<leftPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<bottomPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<rightPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="rgba(255, 255, 255, 0.0)">
+		<box>
+			<pen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<topPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<leftPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<bottomPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<rightPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style/>
+		</conditionalStyle>
+	</style>
+	<style name="Table 1_TH" mode="Opaque" backcolor="rgba(240, 248, 255, 0.0)">
+		<box>
+			<pen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<topPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<leftPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<bottomPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<rightPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+		</box>
+	</style>
+	<style name="Table 1_CH" mode="Opaque" backcolor="rgba(191, 225, 255, 0.0)">
+		<box>
+			<pen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<topPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<leftPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<bottomPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<rightPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+		</box>
+	</style>
+	<style name="Table 1_TD" mode="Opaque" backcolor="rgba(255, 255, 255, 0.0)">
+		<box>
+			<pen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<topPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<leftPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<bottomPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+			<rightPen lineWidth="0.5" lineColor="rgba(0, 0, 0, 0.0)"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style/>
+		</conditionalStyle>
+	</style>
+	<parameter name="parameter" class="java.lang.String"/>
+	<queryString language="JSON">
+		<![CDATA[]]>
+	</queryString>
+	<field name="no_rm" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="pasien.no_rm"/>
+		<fieldDescription><![CDATA[pasien.no_rm]]></fieldDescription>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="pasien.nama"/>
+		<fieldDescription><![CDATA[pasien.nama]]></fieldDescription>
+	</field>
+	<field name="tgl_lahir" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="pasien.tgl_lahir"/>
+		<fieldDescription><![CDATA[pasien.tgl_lahir]]></fieldDescription>
+	</field>
+	<field name="tgl_lahir_indo" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="pasien.tgl_lahir_indo"/>
+		<fieldDescription><![CDATA[pasien.tgl_lahir_indo]]></fieldDescription>
+	</field>
+	<field name="tanggal_asesmen" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.asesmen.tanggal_asesmen"/>
+		<fieldDescription><![CDATA[medis.asesmen.tanggal_asesmen]]></fieldDescription>
+	</field>
+	<field name="tanggal_asesmen_indo" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.asesmen.tanggal_asesmen_indo"/>
+		<fieldDescription><![CDATA[medis.asesmen.tanggal_asesmen_indo]]></fieldDescription>
+	</field>
+	<field name="pukul" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.asesmen.pukul"/>
+		<fieldDescription><![CDATA[medis.asesmen.pukul]]></fieldDescription>
+	</field>
+	<field name="miokard" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_masuk_HCU.sistem_kardiovaskuler.miokard"/>
+		<fieldDescription><![CDATA[medis.kriteria_masuk_HCU.sistem_kardiovaskuler.miokard]]></fieldDescription>
+	</field>
+	<field name="gangguan_jantung" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_masuk_HCU.sistem_kardiovaskuler.gangguan_jantung"/>
+		<fieldDescription><![CDATA[medis.kriteria_masuk_HCU.sistem_kardiovaskuler.gangguan_jantung]]></fieldDescription>
+	</field>
+	<field name="semua_jenis" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_masuk_HCU.sistem_kardiovaskuler.semua_jenis"/>
+		<fieldDescription><![CDATA[medis.kriteria_masuk_HCU.sistem_kardiovaskuler.semua_jenis]]></fieldDescription>
+	</field>
+	<field name="gangguan_irama" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_masuk_HCU.sistem_kardiovaskuler.gangguan_irama"/>
+		<fieldDescription><![CDATA[medis.kriteria_masuk_HCU.sistem_kardiovaskuler.gangguan_irama]]></fieldDescription>
+	</field>
+	<field name="hipertensi" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_masuk_HCU.sistem_kardiovaskuler.hipertensi"/>
+		<fieldDescription><![CDATA[medis.kriteria_masuk_HCU.sistem_kardiovaskuler.hipertensi]]></fieldDescription>
+	</field>
+	<field name="gangguan_pernafasan" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_masuk_HCU.sistem_pernafasan.gangguan_pernafasan"/>
+		<fieldDescription><![CDATA[medis.kriteria_masuk_HCU.sistem_pernafasan.gangguan_pernafasan]]></fieldDescription>
+	</field>
+	<field name="cedera_kepala" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_masuk_HCU.sistem_syaraf.cedera_kepala"/>
+		<fieldDescription><![CDATA[medis.kriteria_masuk_HCU.sistem_syaraf.cedera_kepala]]></fieldDescription>
+	</field>
+	<field name="cedera_tulang" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_masuk_HCU.sistem_syaraf.cedera_tulang"/>
+		<fieldDescription><![CDATA[medis.kriteria_masuk_HCU.sistem_syaraf.cedera_tulang]]></fieldDescription>
+	</field>
+	<field name="pendarahan_saluran" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_masuk_HCU.sistem_pencernaan.pendarahan_saluran"/>
+		<fieldDescription><![CDATA[medis.kriteria_masuk_HCU.sistem_pencernaan.pendarahan_saluran]]></fieldDescription>
+	</field>
+	<field name="krisis_hiperglikemia" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_masuk_HCU.sistem_endokrin.krisis_hiperglikemia"/>
+		<fieldDescription><![CDATA[medis.kriteria_masuk_HCU.sistem_endokrin.krisis_hiperglikemia]]></fieldDescription>
+	</field>
+	<field name="perlu_resusitasi" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_masuk_HCU.bedah.perlu_resusitasi"/>
+		<fieldDescription><![CDATA[medis.kriteria_masuk_HCU.bedah.perlu_resusitasi]]></fieldDescription>
+	</field>
+	<field name="hemodinamik" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_masuk_HCU.bedah.hemodinamik"/>
+		<fieldDescription><![CDATA[medis.kriteria_masuk_HCU.bedah.hemodinamik]]></fieldDescription>
+	</field>
+	<field name="pasien_syok_pendarahan" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_masuk_HCU.bedah.pasien_syok_pendarahan"/>
+		<fieldDescription><![CDATA[medis.kriteria_masuk_HCU.bedah.pasien_syok_pendarahan]]></fieldDescription>
+	</field>
+	<field name="eklamsi" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_masuk_HCU.kebidanan_dan_kandungan.eklamsi"/>
+		<fieldDescription><![CDATA[medis.kriteria_masuk_HCU.kebidanan_dan_kandungan.eklamsi]]></fieldDescription>
+	</field>
+	<field name="pasien_syok_obsgyn" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_masuk_HCU.kebidanan_dan_kandungan.pasien_syok_obsgyn"/>
+		<fieldDescription><![CDATA[medis.kriteria_masuk_HCU.kebidanan_dan_kandungan.pasien_syok_obsgyn]]></fieldDescription>
+	</field>
+	<field name="kriteria_nontransportable" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_masuk_HCU.pasien_nontransportable.kriteria_nontrasportable"/>
+		<fieldDescription><![CDATA[medis.kriteria_masuk_HCU.pasien_nontransportable.kriteria_nontrasportable]]></fieldDescription>
+	</field>
+	<field name="tidak_ada_ancaman" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_keluar_HCU.pasien_stabil.tidak_ada_ancaman"/>
+		<fieldDescription><![CDATA[medis.kriteria_keluar_HCU.pasien_stabil.tidak_ada_ancaman]]></fieldDescription>
+	</field>
+	<field name="oksigenasi_adekuat" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_keluar_HCU.pasien_stabil.oksigenasi_adekuat"/>
+		<fieldDescription><![CDATA[medis.kriteria_keluar_HCU.pasien_stabil.oksigenasi_adekuat]]></fieldDescription>
+	</field>
+	<field name="tidak_syok" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_keluar_HCU.pasien_stabil.tidak_syok"/>
+		<fieldDescription><![CDATA[medis.kriteria_keluar_HCU.pasien_stabil.tidak_syok]]></fieldDescription>
+	</field>
+	<field name="tidak_kejang" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_keluar_HCU.pasien_stabil.tidak_kejang"/>
+		<fieldDescription><![CDATA[medis.kriteria_keluar_HCU.pasien_stabil.tidak_kejang]]></fieldDescription>
+	</field>
+	<field name="ada_ancaman" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_keluar_HCU.pasien_perburukan.ada_ancaman"/>
+		<fieldDescription><![CDATA[medis.kriteria_keluar_HCU.pasien_perburukan.ada_ancaman]]></fieldDescription>
+	</field>
+	<field name="oksigenasi_tidak_adekuat" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_keluar_HCU.pasien_perburukan.oksigenasi_tidak_adekuat"/>
+		<fieldDescription><![CDATA[medis.kriteria_keluar_HCU.pasien_perburukan.oksigenasi_tidak_adekuat]]></fieldDescription>
+	</field>
+	<field name="syok_tak_terkendali" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_keluar_HCU.pasien_perburukan.syok_tak_terkendali"/>
+		<fieldDescription><![CDATA[medis.kriteria_keluar_HCU.pasien_perburukan.syok_tak_terkendali]]></fieldDescription>
+	</field>
+	<field name="kejang" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.kriteria_keluar_HCU.pasien_perburukan.kejang"/>
+		<fieldDescription><![CDATA[medis.kriteria_keluar_HCU.pasien_perburukan.kejang]]></fieldDescription>
+	</field>
+	<field name="pindah" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.tindak_lanjut.pindah"/>
+		<fieldDescription><![CDATA[medis.tindak_lanjut.pindah]]></fieldDescription>
+	</field>
+	<field name="tindakan_lifesaving" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.tindak_lanjut.tindakan_lifesaving"/>
+		<fieldDescription><![CDATA[medis.tindak_lanjut.tindakan_lifesaving]]></fieldDescription>
+	</field>
+	<field name="rujuk" class="java.lang.Boolean">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.tindak_lanjut.rujuk"/>
+		<fieldDescription><![CDATA[medis.tindak_lanjut.rujuk]]></fieldDescription>
+	</field>
+	<field name="selesai_tanggal" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.selesai_tanggal"/>
+		<fieldDescription><![CDATA[medis.selesai_tanggal]]></fieldDescription>
+	</field>
+	<field name="selesai_tanggal_indo" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.selesai_tanggal_indo"/>
+		<fieldDescription><![CDATA[medis.selesai_tanggal_indo]]></fieldDescription>
+	</field>
+	<field name="ttd_dokter" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="digital_signature.ttd_dokter"/>
+		<fieldDescription><![CDATA[digital_signature.ttd_dokter]]></fieldDescription>
+	</field>
+	<field name="nama_dokter" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="medis.nama_dokter"/>
+		<fieldDescription><![CDATA[medis.nama_dokter]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="13">
+			<staticText>
+				<reportElement x="525" y="0" width="30" height="13" uuid="0c598d92-3448-4fb3-baee-4edf463cd5db">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CM 61]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="69" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="-2" width="555" height="71" uuid="a2edbb68-863b-45d0-8643-1ec2fdcc8a95"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<frame>
+					<reportElement x="70" y="0" width="130" height="71" uuid="b5449517-f1c7-42a8-af19-82bed378b51b"/>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="130" height="71" uuid="8a87cc87-91ee-47c6-8fa0-fc071b2de539">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<box>
+							<pen lineWidth="0.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[FORMULIR KRITERIA KELUAR / MASUK HCU]]></text>
+					</staticText>
+				</frame>
+				<staticText>
+					<reportElement x="220" y="5" width="100" height="20" uuid="e85d2517-b98e-495f-a0cb-2ab74d83c1a6"/>
+					<textElement verticalAlignment="Middle"/>
+					<text><![CDATA[Nomor Rekam Medis]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="0" y="-2" width="70" height="70" uuid="3df3b5eb-a334-4a24-9de9-31f2d89752b5">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<image hAlign="Center">
+					<reportElement key="" x="0" y="0" width="70" height="71" uuid="cd3c2449-0ff7-406b-8c48-388063fcf2a8">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<imageExpression><![CDATA["https://daftaronline.rsubinasehat.com/assets/img/institusi.png"]]></imageExpression>
+				</image>
+			</frame>
+			<staticText>
+				<reportElement x="220" y="25" width="100" height="20" uuid="9abf54c1-11c7-4ad6-afa0-f9125e0adfca"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Nama Pasien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="45" width="100" height="20" uuid="3858f6d2-6805-41fb-96f1-53823fc30e9b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Tanggal Lahir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="5" width="20" height="20" uuid="b2694aed-a32f-4a88-92f3-db68ff319e1f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="25" width="20" height="20" uuid="c418c382-95d9-44fa-ad84-30491a234468"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="45" width="20" height="20" uuid="5663f5b3-f132-4c40-b6bb-a4772185cf4b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="340" y="5" width="206" height="20" uuid="cb145232-9f07-4228-8c45-bc5bd4a8428e"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{no_rm}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="25" width="206" height="20" uuid="a2f3bab6-441e-4963-8d60-12959a304ae8"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="45" width="206" height="20" uuid="6c5e37e2-02d2-42fd-9c55-4ef0a400b117"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tgl_lahir_indo}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="38">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="38" uuid="cdab4481-9b7c-47e2-8fe7-874822c957de"/>
+				<rectangle>
+					<reportElement x="0" y="0" width="555" height="38" uuid="6b072506-1c59-4134-b7de-a700e4f908eb"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+			</frame>
+			<staticText>
+				<reportElement x="12" y="0" width="140" height="20" uuid="c840c670-b03c-4ac7-b227-3a5f4dcc247a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Asesmen Awal/Ulang Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="20" width="140" height="18" uuid="aeefa6af-fe7a-4a7c-85e8-726f371ee2e8"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Pukul]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="152" y="20" width="20" height="1" uuid="c4ae0d42-3b8d-4ffd-a3a9-9064a747e5ad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="152" y="0" width="20" height="20" uuid="a77f41de-b1c0-49ab-8e69-0a385a17e09f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="172" y="0" width="210" height="20" uuid="50adac9e-5a30-469d-8669-9178613eddd2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tanggal_asesmen_indo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="172" y="20" width="210" height="18" uuid="b5ab6ba5-9b6d-48db-9adc-207130689b59"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{pukul}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="378">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20" uuid="f1e21968-a562-4a3f-b265-719ca98c3ccb">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   KRITERIA MASUK HCU]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="20" width="555" height="358" uuid="176bdc62-f411-42cd-9aaf-4f005a56e736"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<staticText>
+					<reportElement x="9" y="-3" width="120" height="20" uuid="1da1da7f-0cd7-466a-8b3c-34c843448731"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[1. Sistem Kardiovaskuler]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="21" y="17" width="10" height="10" uuid="c07b936f-880f-4c8f-bac4-919361288867">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement x="21" y="32" width="10" height="10" uuid="4add5ead-b109-42ca-a012-ae83dc93fcdc">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement x="21" y="47" width="10" height="10" uuid="6f9a6453-09d1-42bd-b6e3-ce9a53b4b5f0">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement x="291" y="18" width="10" height="10" uuid="384789da-7982-444d-a3d1-2e64a3145752">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement x="291" y="33" width="10" height="10" uuid="885de07f-9bcd-464b-b195-25d8a3f4e8cd">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="9" y="57" width="120" height="20" uuid="075a42e3-3fb0-4272-9223-b031d5b29855"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[2. Sistem Pernafasan]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="21" y="77" width="10" height="10" uuid="6d37ffd1-2bb4-4b2b-8f9e-64fc92d4bfac">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="9" y="88" width="120" height="20" uuid="0a0118d9-cd60-46d0-abf6-0065fbc8a683"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[3. Sistem Syaraf]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="21" y="108" width="10" height="10" uuid="ca5badd8-9264-4c30-8751-5109801f11eb">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement x="21" y="135" width="10" height="10" uuid="1bc0d7f7-221b-4e69-81e6-324e3ea09150">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="9" y="145" width="120" height="20" uuid="bcfe08ec-116a-46ae-9ac1-2e698eca67b0"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[4. Sistem Pencernaan]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="21" y="165" width="10" height="10" uuid="6fd0f79e-ab16-4108-bbdf-ba3a7df82e61">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="9" y="176" width="120" height="20" uuid="6e109591-b44c-474c-a716-ea54294ba521"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[5. Sistem Endokrin]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="21" y="196" width="10" height="10" uuid="91e12638-600c-4c20-85b2-3b870e29f5ae">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="9" y="207" width="120" height="20" uuid="08833844-b6ca-421a-9496-e99d87caeca0"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[6. Bedah]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="21" y="227" width="10" height="10" uuid="0cb9e9db-2402-4c2c-8a21-afc227f79ba3">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement x="21" y="242" width="10" height="10" uuid="14edaf1f-b484-440a-b28f-03203dc519cf">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement x="21" y="257" width="10" height="10" uuid="21396fee-e963-4f9e-93cf-1b14832fbc0c">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="8" y="268" width="142" height="20" uuid="db3b9f68-173d-43ab-a780-bd9aafb45906"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[7. Kebidanan dan kandungan]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="20" y="288" width="10" height="10" uuid="3cc7e013-9bb3-4b10-b47a-f8c89563b3ad">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement x="20" y="303" width="10" height="10" uuid="fde320b4-e47f-4acf-a2e6-7c6284a37449">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="8" y="314" width="142" height="20" uuid="bd2ddac2-429f-4ef0-9bae-69262f369644"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[8. Pasien Non-Transportable]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="20" y="334" width="10" height="10" uuid="262667e7-cddf-46a7-8a3c-eedccc95f52c">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="34" y="11" width="216" height="20" uuid="cd31d041-1822-4ec8-b894-f54674f01aec"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Miokard Infark dengan Hemodiamika Stabil]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="34" y="26" width="226" height="20" uuid="30c786aa-8155-49a5-8671-9947a5737740"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Gangguan jantung kongestif dengan NYHA 1 & 2]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="35" y="43" width="216" height="20" uuid="49193585-33ac-46e0-aeae-1e2078a7f335"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Semua jenis syok]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="304" y="12" width="216" height="20" uuid="160ef25b-4be5-46b5-afdf-07a6cd69e304"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Gangguan irama jantung dengan hemodinamika stabil]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="305" y="28" width="216" height="20" uuid="f0684b65-9e7a-4966-8f20-2b58f1280f7a"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Hipertensi "Urgensi" tanpa ada gagal target organ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="35" y="72" width="508" height="20" uuid="22388b45-dc34-451c-afbb-3f3b45483d6c"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Gangguan pernafasan yang memerlukan fisioterapi intensif dan agresif namun tidak memerlukan alat bantu nafas]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="35" y="103" width="508" height="32" uuid="887b2888-3204-45de-b7a3-d05cca2eb368"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Cedera kepala sedang sampai berat/stroke yang stabil dan memerlukan tirah baring dan memerlukan jalan nafas secara khusus, seperti hisap lendir berkala]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="35" y="130" width="216" height="20" uuid="7c6096bc-9926-4a03-a8f4-c84bbabf7597"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Cedera tulang belakang bagian leher yang stabil]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="35" y="160" width="486" height="20" uuid="d5bf1b7f-4021-4f71-b698-27201413e4a8"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Pendarahan saluran cerna bagian atas tanpa hipotensi ortostatik dan respon baik terhadap pemberian cairan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="36" y="190" width="304" height="20" uuid="d5df40f9-f3d9-4ead-921a-5f5d0ed4992f"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Krisis "Hiperglikemia" yang memerlukan infus insulin yang konstan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="36" y="221" width="434" height="20" uuid="bcd6826d-eec9-43d9-93ed-6004aee455ef"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Paska operasi bedah besar dengan hemodimanik stabil tapi masih memerlukan resusitasi cairan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="36" y="237" width="234" height="20" uuid="bf40591f-2fc5-4353-a2fc-1dfe43945525"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Paska operasi bedah besar dengan hemodimanik]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="36" y="252" width="154" height="20" uuid="41994d4f-dbc4-4f0a-a0ec-2f033e347bf5"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Pasien syok karena pendarahan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="36" y="282" width="269" height="20" uuid="95f83b93-c12a-4cf5-b56a-e039a87307c2"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Eklamsi/Preeklamsia pada persalinan atau pasca persalinan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="36" y="298" width="269" height="20" uuid="360c5718-c6b7-43c8-818c-d8c87e390f88"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Pasien syok karena permasalahan obsgyn]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="36" y="331" width="507" height="27" uuid="a107ec2d-8e0d-4715-a04e-95da3a90d13b"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Pasien yang telah dinyatakan terminal namun masuk kriteria non-transportable dengan informed consent terlebih dahulu]]></text>
+				</staticText>
+				<line>
+					<reportElement x="21" y="18" width="10" height="9" isRemoveLineWhenBlank="true" uuid="52ebc1f5-01ad-4251-b42d-e2277261d127">
+						<printWhenExpression><![CDATA[$F{miokard} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line direction="BottomUp">
+					<reportElement x="21" y="17" width="10" height="10" isRemoveLineWhenBlank="true" uuid="943a3348-e127-4972-a1e8-8dec9af8e9a7">
+						<printWhenExpression><![CDATA[$F{miokard} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement x="21" y="33" width="10" height="9" isRemoveLineWhenBlank="true" uuid="677ed467-1367-4585-921d-7a6b6ae2ec4d">
+						<printWhenExpression><![CDATA[$F{gangguan_jantung} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line direction="BottomUp">
+					<reportElement x="21" y="32" width="10" height="10" isRemoveLineWhenBlank="true" uuid="c6e73694-b693-4494-a57e-d055aa9f52c6">
+						<printWhenExpression><![CDATA[$F{gangguan_jantung} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement x="21" y="48" width="10" height="9" isRemoveLineWhenBlank="true" uuid="e3eeef34-1b7d-457b-8ad2-14d5ecd2938a">
+						<printWhenExpression><![CDATA[$F{semua_jenis} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line direction="BottomUp">
+					<reportElement x="21" y="48" width="10" height="10" isRemoveLineWhenBlank="true" uuid="a6ddf4e5-875d-4517-a46c-dc317ef07afe">
+						<printWhenExpression><![CDATA[$F{semua_jenis} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement x="291" y="19" width="10" height="9" isRemoveLineWhenBlank="true" uuid="3a07ec0d-52e3-4d41-a6d7-ebab8d7b554c">
+						<printWhenExpression><![CDATA[$F{gangguan_irama} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line direction="BottomUp">
+					<reportElement x="291" y="19" width="10" height="10" isRemoveLineWhenBlank="true" uuid="0de23557-69f0-409e-a863-aaae774d440b">
+						<printWhenExpression><![CDATA[$F{gangguan_irama} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement x="291" y="34" width="10" height="9" isRemoveLineWhenBlank="true" uuid="ac38c931-8687-448a-90bc-90f5644cef05">
+						<printWhenExpression><![CDATA[$F{hipertensi} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line direction="BottomUp">
+					<reportElement x="291" y="33" width="10" height="10" isRemoveLineWhenBlank="true" uuid="adee0276-b270-43c2-9efb-d8b7d9da1b04">
+						<printWhenExpression><![CDATA[$F{hipertensi} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement x="21" y="78" width="10" height="9" isRemoveLineWhenBlank="true" uuid="96e3e438-4b45-4064-886b-436751e299b8">
+						<printWhenExpression><![CDATA[$F{gangguan_pernafasan} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line direction="BottomUp">
+					<reportElement x="21" y="77" width="10" height="10" isRemoveLineWhenBlank="true" uuid="343302f0-d2df-4fe2-b67f-1e1c0383f05b">
+						<printWhenExpression><![CDATA[$F{gangguan_pernafasan} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement x="21" y="109" width="10" height="9" isRemoveLineWhenBlank="true" uuid="636010fc-55b2-4893-ad79-9dd76afc354f">
+						<printWhenExpression><![CDATA[$F{cedera_kepala} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line direction="BottomUp">
+					<reportElement x="21" y="108" width="10" height="10" isRemoveLineWhenBlank="true" uuid="5975cc6a-49dd-4562-bc3c-788976d09ebe">
+						<printWhenExpression><![CDATA[$F{cedera_kepala} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement x="21" y="136" width="10" height="9" isRemoveLineWhenBlank="true" uuid="323fda16-ab16-48d5-9fda-3ee64c15f9cf">
+						<printWhenExpression><![CDATA[$F{cedera_tulang} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line direction="BottomUp">
+					<reportElement x="21" y="135" width="10" height="10" isRemoveLineWhenBlank="true" uuid="21de9b12-93da-4b8d-8eec-c1590a85f4b4">
+						<printWhenExpression><![CDATA[$F{cedera_tulang} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement x="21" y="166" width="10" height="9" isRemoveLineWhenBlank="true" uuid="7002f757-6f44-4709-a9a9-744e0c9bbb0b">
+						<printWhenExpression><![CDATA[$F{pendarahan_saluran} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line direction="BottomUp">
+					<reportElement x="21" y="165" width="10" height="10" isRemoveLineWhenBlank="true" uuid="949af879-014c-48f1-8bd4-f3e2e0bdd853">
+						<printWhenExpression><![CDATA[$F{pendarahan_saluran} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement x="21" y="197" width="10" height="9" isRemoveLineWhenBlank="true" uuid="002cf20e-cfb6-42f5-847c-64db5b9c3f1b">
+						<printWhenExpression><![CDATA[$F{krisis_hiperglikemia} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line direction="BottomUp">
+					<reportElement x="21" y="196" width="10" height="10" isRemoveLineWhenBlank="true" uuid="f284ceac-1084-4108-b716-a9605acdf850">
+						<printWhenExpression><![CDATA[$F{krisis_hiperglikemia} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement x="21" y="228" width="10" height="9" isRemoveLineWhenBlank="true" uuid="347eccb8-4d3d-4dd3-91f3-1bd469df83cb">
+						<printWhenExpression><![CDATA[$F{perlu_resusitasi} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line direction="BottomUp">
+					<reportElement x="21" y="227" width="10" height="10" isRemoveLineWhenBlank="true" uuid="f0595b11-13b2-4caa-a253-3f2eb9e66212">
+						<printWhenExpression><![CDATA[$F{perlu_resusitasi} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement x="21" y="243" width="10" height="9" isRemoveLineWhenBlank="true" uuid="68054185-aeaf-42d8-9071-561328ad4f38">
+						<printWhenExpression><![CDATA[$F{hemodinamik} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line direction="BottomUp">
+					<reportElement x="21" y="242" width="10" height="10" isRemoveLineWhenBlank="true" uuid="e3c5302f-f045-465f-8bcf-187411c723a3">
+						<printWhenExpression><![CDATA[$F{hemodinamik} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement x="21" y="258" width="10" height="9" isRemoveLineWhenBlank="true" uuid="5b7c8ca2-c5e0-4628-8bd9-64af4b9d5083">
+						<printWhenExpression><![CDATA[$F{pasien_syok_pendarahan} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line direction="BottomUp">
+					<reportElement x="21" y="257" width="10" height="10" isRemoveLineWhenBlank="true" uuid="94c1b5e0-ebbe-443e-b72f-2e72c15362fd">
+						<printWhenExpression><![CDATA[$F{pasien_syok_pendarahan} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement x="20" y="289" width="10" height="9" isRemoveLineWhenBlank="true" uuid="17973004-98a2-409f-81c6-5a9531bfdec0">
+						<printWhenExpression><![CDATA[$F{eklamsi} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line direction="BottomUp">
+					<reportElement x="20" y="288" width="10" height="10" isRemoveLineWhenBlank="true" uuid="82c86784-5c42-47f6-9f45-8199caddcb5e">
+						<printWhenExpression><![CDATA[$F{eklamsi} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement x="20" y="304" width="10" height="9" isRemoveLineWhenBlank="true" uuid="558a3175-507f-41a6-80da-2e94443afc9c">
+						<printWhenExpression><![CDATA[$F{pasien_syok_obsgyn} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line direction="BottomUp">
+					<reportElement x="20" y="303" width="10" height="10" isRemoveLineWhenBlank="true" uuid="23cb2b65-bef5-4f1b-908a-2277c0d38cdd">
+						<printWhenExpression><![CDATA[$F{pasien_syok_obsgyn} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement x="20" y="335" width="10" height="9" isRemoveLineWhenBlank="true" uuid="bbe254cf-0b36-402e-9fca-fdb95482e899">
+						<printWhenExpression><![CDATA[$F{kriteria_nontransportable} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line direction="BottomUp">
+					<reportElement x="20" y="334" width="10" height="10" isRemoveLineWhenBlank="true" uuid="73ade38a-e418-4ec3-9c53-965483955d75">
+						<printWhenExpression><![CDATA[$F{kriteria_nontransportable} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+			</frame>
+		</band>
+		<band height="107">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="107" uuid="1d6a05ff-71ec-4dac-b531-18068dd664e4"/>
+				<staticText>
+					<reportElement x="0" y="0" width="555" height="20" uuid="94627918-dac1-4062-9d0c-6b34efd00df5">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[   KRITERIA KELUAR HCU]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="20" width="280" height="20" uuid="0884c1d3-7cd8-4aa4-b179-a6964bbe1f3c">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Pasien Stabil]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="280" y="20" width="275" height="20" uuid="1f34d5d5-2c6c-43fa-aa55-7a7f228696cc">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Pasien Perburukan]]></text>
+				</staticText>
+				<frame>
+					<reportElement x="0" y="40" width="280" height="67" uuid="e5ea9b92-e580-4672-a269-8d1a33d900e4"/>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<staticText>
+						<reportElement x="21" y="32" width="216" height="20" uuid="60249ae4-b75c-4c4f-9419-e6345b97f929"/>
+						<textElement verticalAlignment="Middle">
+							<font isBold="false"/>
+						</textElement>
+						<text><![CDATA[Tidak dalam keadaan syok]]></text>
+					</staticText>
+					<rectangle>
+						<reportElement x="7" y="36" width="10" height="10" uuid="0c0c2256-c646-46be-82c8-5fbd03fcc8ad">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<graphicElement>
+							<pen lineWidth="0.5"/>
+						</graphicElement>
+					</rectangle>
+					<staticText>
+						<reportElement x="20" y="15" width="226" height="20" uuid="947a33ee-8e3d-4dc0-8c63-5107eaf06ffc"/>
+						<textElement verticalAlignment="Middle">
+							<font isBold="false"/>
+						</textElement>
+						<text><![CDATA[Oksigenasi adekuat]]></text>
+					</staticText>
+					<rectangle>
+						<reportElement x="7" y="21" width="10" height="10" uuid="9b098910-b6a7-4e6e-afd4-ecfb1f4c888f">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<graphicElement>
+							<pen lineWidth="0.5"/>
+						</graphicElement>
+					</rectangle>
+					<staticText>
+						<reportElement x="20" y="0" width="216" height="20" uuid="3f3ab347-5168-4053-b185-348317d1b461"/>
+						<textElement verticalAlignment="Middle">
+							<font isBold="false"/>
+						</textElement>
+						<text><![CDATA[Tidak ada ancaman sumbatan jalan nafas]]></text>
+					</staticText>
+					<rectangle>
+						<reportElement x="7" y="6" width="10" height="10" uuid="179d1193-ab0f-4e8d-81d4-bf66c067d6bf">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<graphicElement>
+							<pen lineWidth="0.5"/>
+						</graphicElement>
+					</rectangle>
+					<rectangle>
+						<reportElement x="7" y="51" width="10" height="10" uuid="4662fd57-be4d-49fc-974d-2717f2dedd51">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<graphicElement>
+							<pen lineWidth="0.5"/>
+						</graphicElement>
+					</rectangle>
+					<staticText>
+						<reportElement x="21" y="47" width="216" height="20" uuid="9de8b297-6de9-443f-ab5e-4bb086edce81"/>
+						<textElement verticalAlignment="Middle">
+							<font isBold="false"/>
+						</textElement>
+						<text><![CDATA[Tidak kejang]]></text>
+					</staticText>
+					<line>
+						<reportElement x="7" y="7" width="10" height="9" isRemoveLineWhenBlank="true" uuid="8017285a-8b85-4a9d-9b08-6dbb116fef40">
+							<printWhenExpression><![CDATA[$F{tidak_ada_ancaman} == true]]></printWhenExpression>
+						</reportElement>
+					</line>
+					<line direction="BottomUp">
+						<reportElement x="7" y="6" width="10" height="10" isRemoveLineWhenBlank="true" uuid="c3498c14-138f-4788-912e-08561589531e">
+							<printWhenExpression><![CDATA[$F{tidak_ada_ancaman} == true]]></printWhenExpression>
+						</reportElement>
+					</line>
+					<line>
+						<reportElement x="7" y="22" width="10" height="9" isRemoveLineWhenBlank="true" uuid="621d7558-83ec-47b2-bd9f-e266f4a17fa0">
+							<printWhenExpression><![CDATA[$F{oksigenasi_adekuat} == true]]></printWhenExpression>
+						</reportElement>
+					</line>
+					<line direction="BottomUp">
+						<reportElement x="7" y="21" width="10" height="10" isRemoveLineWhenBlank="true" uuid="e05dbc98-126c-4f6e-849c-a16e028d4251">
+							<printWhenExpression><![CDATA[$F{oksigenasi_adekuat} == true]]></printWhenExpression>
+						</reportElement>
+					</line>
+					<line>
+						<reportElement x="7" y="37" width="10" height="9" isRemoveLineWhenBlank="true" uuid="f433f60a-179d-4724-acb9-7d9a21316b11">
+							<printWhenExpression><![CDATA[$F{tidak_syok} == true]]></printWhenExpression>
+						</reportElement>
+					</line>
+					<line direction="BottomUp">
+						<reportElement x="7" y="36" width="10" height="10" isRemoveLineWhenBlank="true" uuid="42431e4c-38cd-4dde-82ad-ae56133a17bd">
+							<printWhenExpression><![CDATA[$F{tidak_syok} == true]]></printWhenExpression>
+						</reportElement>
+					</line>
+					<line>
+						<reportElement x="7" y="52" width="10" height="9" isRemoveLineWhenBlank="true" uuid="42ee7ce3-6836-4dec-9a70-eb446ba7c2a0">
+							<printWhenExpression><![CDATA[$F{tidak_kejang} == true]]></printWhenExpression>
+						</reportElement>
+					</line>
+					<line direction="BottomUp">
+						<reportElement x="7" y="51" width="10" height="10" isRemoveLineWhenBlank="true" uuid="634eff7d-4576-4ae4-9a0e-a9214520f6fc">
+							<printWhenExpression><![CDATA[$F{tidak_kejang} == true]]></printWhenExpression>
+						</reportElement>
+					</line>
+				</frame>
+				<frame>
+					<reportElement x="280" y="40" width="275" height="67" uuid="ab6617bf-8fa5-4dce-b4da-83e2015bed42"/>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+					<rectangle>
+						<reportElement x="7" y="6" width="10" height="10" uuid="63dea25b-14d7-42f6-a6ed-ffc2ed9bff3d">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<graphicElement>
+							<pen lineWidth="0.5"/>
+						</graphicElement>
+					</rectangle>
+					<staticText>
+						<reportElement x="20" y="0" width="216" height="20" uuid="d036b26d-ba00-4529-97d7-8b9c404eb57e"/>
+						<textElement verticalAlignment="Middle">
+							<font isBold="false"/>
+						</textElement>
+						<text><![CDATA[Ada ancaman sumbatan jalan nafas]]></text>
+					</staticText>
+					<rectangle>
+						<reportElement x="7" y="21" width="10" height="10" uuid="07841de3-be43-4b18-b9fa-3545c647bb82">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<graphicElement>
+							<pen lineWidth="0.5"/>
+						</graphicElement>
+					</rectangle>
+					<staticText>
+						<reportElement x="20" y="15" width="226" height="20" uuid="e372f7fe-1736-4d96-b19e-4adbcd460399"/>
+						<textElement verticalAlignment="Middle">
+							<font isBold="false"/>
+						</textElement>
+						<text><![CDATA[Oksigenasi tidak adekuat]]></text>
+					</staticText>
+					<rectangle>
+						<reportElement x="7" y="36" width="10" height="10" uuid="594bd1c9-d0e9-4a16-a647-117bb5ad7f7b">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<graphicElement>
+							<pen lineWidth="0.5"/>
+						</graphicElement>
+					</rectangle>
+					<staticText>
+						<reportElement x="21" y="32" width="216" height="20" uuid="eafa6d4c-205b-41d7-9e2f-3b3cddcead63"/>
+						<textElement verticalAlignment="Middle">
+							<font isBold="false"/>
+						</textElement>
+						<text><![CDATA[Keadaan syok tak terkendali]]></text>
+					</staticText>
+					<rectangle>
+						<reportElement x="7" y="51" width="10" height="10" uuid="ed149b93-095e-4de8-a2f2-4913d5d34e7f">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<graphicElement>
+							<pen lineWidth="0.5"/>
+						</graphicElement>
+					</rectangle>
+					<staticText>
+						<reportElement x="21" y="47" width="216" height="20" uuid="f3a79dea-a80d-4866-bb13-f51a9872c0ea"/>
+						<textElement verticalAlignment="Middle">
+							<font isBold="false"/>
+						</textElement>
+						<text><![CDATA[Kejang tanpa respon baik terhadap obat]]></text>
+					</staticText>
+					<line>
+						<reportElement x="7" y="7" width="10" height="9" isRemoveLineWhenBlank="true" uuid="c3f27cb5-03c2-4192-9fc1-b835667414c8">
+							<printWhenExpression><![CDATA[$F{ada_ancaman} == true]]></printWhenExpression>
+						</reportElement>
+					</line>
+					<line direction="BottomUp">
+						<reportElement x="7" y="6" width="10" height="10" isRemoveLineWhenBlank="true" uuid="72816784-4520-4487-a87f-6a991f23fdfc">
+							<printWhenExpression><![CDATA[$F{ada_ancaman} == true]]></printWhenExpression>
+						</reportElement>
+					</line>
+					<line>
+						<reportElement x="7" y="22" width="10" height="9" isRemoveLineWhenBlank="true" uuid="ea2d1ac1-9370-44db-8261-a8c34b5e9eda">
+							<printWhenExpression><![CDATA[$F{oksigenasi_tidak_adekuat} == true]]></printWhenExpression>
+						</reportElement>
+					</line>
+					<line direction="BottomUp">
+						<reportElement x="7" y="21" width="10" height="10" isRemoveLineWhenBlank="true" uuid="9bd1c93d-a69c-438f-ae47-68afa2999066">
+							<printWhenExpression><![CDATA[$F{oksigenasi_tidak_adekuat} == true]]></printWhenExpression>
+						</reportElement>
+					</line>
+					<line>
+						<reportElement x="7" y="37" width="10" height="9" isRemoveLineWhenBlank="true" uuid="fe1c0162-8916-4edf-864d-452608165067">
+							<printWhenExpression><![CDATA[$F{syok_tak_terkendali} == true]]></printWhenExpression>
+						</reportElement>
+					</line>
+					<line direction="BottomUp">
+						<reportElement x="7" y="36" width="10" height="10" isRemoveLineWhenBlank="true" uuid="4f2e6900-228f-4e44-8bea-9dce31550734">
+							<printWhenExpression><![CDATA[$F{syok_tak_terkendali} == true]]></printWhenExpression>
+						</reportElement>
+					</line>
+					<line>
+						<reportElement x="7" y="52" width="10" height="9" isRemoveLineWhenBlank="true" uuid="764ffb8a-0b4c-4264-a9c7-189d81d59111">
+							<printWhenExpression><![CDATA[$F{kejang} == true]]></printWhenExpression>
+						</reportElement>
+					</line>
+					<line direction="BottomUp">
+						<reportElement x="7" y="51" width="10" height="10" isRemoveLineWhenBlank="true" uuid="451fe6a0-2b4c-47da-8c93-e354fa4905fe">
+							<printWhenExpression><![CDATA[$F{kejang} == true]]></printWhenExpression>
+						</reportElement>
+					</line>
+				</frame>
+			</frame>
+		</band>
+		<band height="55">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20" uuid="393f873e-1833-418e-81b9-bab05976fc96">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  TINDAK LANJUT]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="20" width="280" height="35" uuid="9339db23-6ec3-4a8b-bcf4-6a83f2e55fe1"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<staticText>
+					<reportElement x="20" y="7" width="216" height="20" uuid="b1c59aa8-277f-4f22-8a4c-345395692715"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Pindah keruangan rawat inap biasa]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="7" y="13" width="10" height="10" uuid="c0266ca4-6290-43dd-a1cc-4b0d6850a98c">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<line>
+					<reportElement x="7" y="14" width="10" height="9" isRemoveLineWhenBlank="true" uuid="6ec660af-1d97-4f2e-a3f1-0bb32e5f40ec">
+						<printWhenExpression><![CDATA[$F{pindah} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line direction="BottomUp">
+					<reportElement x="7" y="13" width="10" height="10" isRemoveLineWhenBlank="true" uuid="5e86c66b-874f-42d8-a9bd-31c276aeaa3e">
+						<printWhenExpression><![CDATA[$F{pindah} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+			</frame>
+			<frame>
+				<reportElement x="280" y="20" width="275" height="35" uuid="e7db7fc3-1637-4d3a-91ae-4f32ce540427"/>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<staticText>
+					<reportElement x="20" y="-2" width="216" height="20" uuid="5f1cca44-a3c6-41a7-b85f-ffc7d277fee5"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Tindakan life-saving]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="7" y="4" width="10" height="10" uuid="f7b92666-e173-498b-8621-73ff8f91d629">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="20" y="15" width="226" height="20" uuid="c2cafcb6-5947-4562-b89c-eaa05df0d28a"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Rujuk ke ICU]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="7" y="21" width="10" height="10" uuid="bd20efed-d81c-456d-9a87-93471777674c">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<line>
+					<reportElement x="7" y="5" width="10" height="9" isRemoveLineWhenBlank="true" uuid="977333b9-fd6e-42e9-9b15-7f8bb73c25fe">
+						<printWhenExpression><![CDATA[$F{tindakan_lifesaving} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line direction="BottomUp">
+					<reportElement x="7" y="4" width="10" height="10" isRemoveLineWhenBlank="true" uuid="9074998b-5c0c-4b99-b7a8-8516ba2b44f2">
+						<printWhenExpression><![CDATA[$F{tindakan_lifesaving} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement x="7" y="22" width="10" height="9" isRemoveLineWhenBlank="true" uuid="fb842044-2620-4d2e-ba10-1852af8d6bbc">
+						<printWhenExpression><![CDATA[$F{rujuk} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+				<line direction="BottomUp">
+					<reportElement x="7" y="21" width="10" height="10" isRemoveLineWhenBlank="true" uuid="ac93fb9d-2b68-413a-9b13-81501f522832">
+						<printWhenExpression><![CDATA[$F{rujuk} == true]]></printWhenExpression>
+					</reportElement>
+				</line>
+			</frame>
+		</band>
+		<band height="140">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="140" uuid="48087356-21a0-4738-b8e8-bfb7ee53e2d2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+				<staticText>
+					<reportElement x="339" y="7" width="50" height="20" uuid="73d56da4-25a6-4ff7-b04f-65d2a8f0a0ef"/>
+					<text><![CDATA[Bandung,]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="389" y="7" width="126" height="20" uuid="5dc75848-eeea-4452-a00b-d02e86a2f594"/>
+					<textFieldExpression><![CDATA[$F{selesai_tanggal_indo}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="339" y="27" width="212" height="20" uuid="2ae74c5c-c9f7-43ce-859d-1daf98cb5f43"/>
+					<text><![CDATA[Dokter Penanggung Jawab Pasien/Dokter Jaga]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement x="398" y="41" width="89" height="80" uuid="a8a6b605-c949-4ab0-b12a-d8fd1a64946d"/>
+					<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<jr:codeExpression><![CDATA["123456789"]]></jr:codeExpression>
+					</jr:QRCode>
+				</componentElement>
+				<textField>
+					<reportElement x="339" y="116" width="212" height="20" uuid="acab4dc0-c5ab-4e1a-b8c0-67283c1becaf"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{nama_dokter}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
