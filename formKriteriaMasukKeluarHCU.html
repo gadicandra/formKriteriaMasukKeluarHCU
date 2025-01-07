@@ -1,296 +1,543 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script type="text/javascript">
+    function init_doc(doc_id, data, operation){
+    
+        var app = new Vue({
+            el: '#formadd',
+            data: data,
+            mounted:function(){
+                this.init()
+            },
+            methods: {
+            saveDoc: function () {
+                
+                var json = {
+                    'document_history_list_id' : doc_id, /* built in variable from edoc */
+                    'patient_id' : EMRDATA.patient_id,
+                    'reg_number' : EMRDATA.reg_number,
+                    'document' : EMRDATA.document_code, 
+                    'document_title' : EMRDATA.document_name,
+                    'label' : 'Poliklinik',
+                    'note' : '',
+                    'data' : data
+                };
+    
+                /* built in function from edoc */
+                save_emr_data(json);
+            },
+            checkData: function(){
+                /* built in function from edoc */
+                    preview_emr_data(data);
+            },
+            onChDateDynamic: function(dateData, jsonPath){
+                let obj = this
+                jsonPathSplit = jsonPath.split('.');
+                for (i = 0; i < jsonPathSplit.length - 1; i++){
+                    obj = obj[jsonPathSplit[i]];
+                }
+                if(dateData.target.value != ""){
+                    obj[jsonPathSplit[i]] = dateParse(new Date(dateData.target.value));
+                } else {
+                    obj[jsonPathSplit[i]] = "";
+                }
+            }
+            }
+        });
+    }
+    
+    function newTime() {
+        const current = new Date();
+        const date = current.getFullYear()+'-'+("0" + (current.getMonth()+1)).slice(-2) +'-'+("0" + current.getDate()).slice(-2);
+        return date;
+    }
+    
+    function init_doc_add(data){
+        // Insert external link ws
+        
+        // Data from webservice
+        const ext_px_data = data.external_link.px_data
+        const ext_vital_data = data.external_link.vital_sign_data
+        
+        // Sync data json from web service  below this comment
+        const px_data = data.pasien
+        px_data.nama = ext_px_data.nama
+        px_data.no_rm = ext_px_data.no_rm
+        px_data.kelamin = ext_px_data.kelamin
+        px_data.tgl_lahir = ext_px_data.tanggal_lahir
+        px_data.tgl_lahir_indo = dateParse(new Date(ext_px_data.tanggal_lahir))
+        
+        /*const asesmen_data = data.medis.asesmen
+        data.tanggal_asesmen = ext_*/
+        
+        const vital_data = data.medis.
+        data.medis.pengkajian.td.sistole = ext_vital_data.tensi.sistole || 0
+        // data.medis.pengkajian.td.diastole = ext_vital_data.tensi.diastole || 0
+        // data.medis.pengkajian.n = ext_vital_data.nadi || 0
+        // data.medis.pengkajian.rr = ext_vital_data.nafas || 0
+        // data.medis.pengkajian.s = ext_vital_data.suhu || 0
+        data.medis.pengkajian.subjective = ext_vital_data.anamnesis || ""
+        // data.medis.pengkajian.keluhana_utama = ext_vital_data.keluhan_utama || ""
+        data.medis.pengkajian.lokalis = ext_vital_data.pemeriksaan_fisik || ""
+        // data.medis.pengkajian.gcs.e = parseInt(ext_vital_data.assesmen_igd.gcs_e) || 0
+        // data.medis.pengkajian.gcs.v = parseInt(ext_vital_data.assesmen_igd.gcs_v) || 0
+        // data.medis.pengkajian.gcs.m = parseInt(ext_vital_data.assesmen_igd.gcs_m) || 0
+        // data.medis.pengkajian.o2 = parseInt(data.external_link.vital_sign_data.spo2) || 0
+        data.medis.pengkajian.planning.isian = ext_vital_data.plan || ""
+        // data.medis.pengkajian.gcs_total = data.medis.pengkajian.gcs.e + data.medis.pengkajian.gcs.m + data.medis.pengkajian.gcs.v
+        data.medis.pengkajian.selesai_pukul = newTime().time
+        data.medis.pengkajian.pemeriksaan_pukul = newTime().time
+        data.medis.pengkajian.selesai_tanggal = newTime().date
+        
+        if(intl?.obyektif){
+            const intl_obyektif = intl.obyektif.source_value;
+            // const gcs_e = `${intl_obyektif.gcs.e};` || 0;
+            // const gcs_m = `${intl_obyektif.gcs.m};` || 0;
+            // const gcs_v = `${intl_obyektif.gcs.v};` || 0;
+            // const gcs_total = `${intl_obyektif.total_gcs};`;
+            // const oby_kesadaran = "E : " + gcs_e.toString() + ", M : " + gcs_m.toString() + ", V : " + gcs_v.toString() + ", Total : " + gcs_total.toString()
+            // data.pemeriksaan_umum.keadaan_umum = `${intl_obyektif.keadaan};`;
+            // data.pemeriksaan_umum.kesadaran = oby_kesadaran
+            data.medis.pengkajian.gcs.e = `${intl_obyektif.gcs.e};` || 0;
+            data.medis.pengkajian.gcs.v = `${intl_obyektif.gcs.m};` || 0;
+            data.medis.pengkajian.gcs.m = `${intl_obyektif.gcs.v};` || 0;
+            data.medis.pengkajian.td.sistole = `${intl_obyektif.td.sistole};` || 0;
+            data.medis.pengkajian.td.diastole = `${intl_obyektif.td.diastole};` || 0;
+            data.medis.pengkajian.rr = `${intl_obyektif.nafas};` || 0;
+            data.medis.pengkajian.n = `${intl_obyektif.nadi};` || 0;
+            data.medis.pengkajian.s = `${intl_obyektif.suhu};` || 0;
+            // data.pemeriksaan_umum.bb_saat_ini = `${intl_obyektif.bb};` || 0;
+            // data.pemeriksaan_umum.tb = `${intl_obyektif.tb};` || 0;
+        }
+        
+        //Diagnosa Bridging
+        if(data.external_link.diagnosa_data[0].nama_sebab_sakit != "" ){
+            var obj = data.external_link.diagnosa_data;
+            
+            var diagnosaPrimer = obj.filter(function (el){
+                return el.primer == "Primer";
+            });
+            
+            var diagnosaSekunder = obj.filter(function (el){
+                    return el.primer == "Sekunder"; 
+                });
+            data.medis.pengkajian.assesment.diagnosa_sekunder = diagnosaSekunder;
+            var diagnosaPrimerObj = diagnosaPrimer[0]
+            
+            if(diagnosaPrimer < 1){
+                data.medis.pengkajian.assesment.diagnosa_utama.icd_x = ""
+                data.medis.pengkajian.assesment.diagnosa_utama.deskripsi =  ""
+            } else {
+                console.log(diagnosaPrimerObj)
+                data.medis.pengkajian.assesment.diagnosa_utama.icd_x = diagnosaPrimerObj.icd_x 
+                data.medis.pengkajian.assesment.diagnosa_utama.deskripsi = diagnosaPrimerObj.nama_sebab_sakit 
+                setSelect2($('#icdx_auto_utama'), data.medis.pengkajian.assesment.diagnosa_utama.icd_x, `<b>${data.medis.pengkajian.assesment.diagnosa_utama.icd_x}</b> | ${data.medis.pengkajian.assesment.diagnosa_utama.deskripsi}`)
+            }
+        }
+            
+        // if(data.external_link.diagnosa_data.length) {
+            
+        //     var obj = data.external_link.diagnosa_data;
+            
+        //     var diagnosaSekunder = obj.filter(function (el){
+        //           return el.primer == "Sekunder"; 
+        //         });
+            
+        //     var diagnosaPrimer = obj.filter(function (el){
+        //           return el.primer == "Primer";
+        //         });
+            
+        //     data.medis.pengkajian.assesment.diagnosa_sekunder = diagnosaSekunder;
+            
+        //     var diagnosaPrimerObj = diagnosaPrimer[0]
+        //     data.medis.pengkajian.assesment.diagnosa_utama.icd_x = diagnosaPrimerObj.icd_x;
+        //     data.medis.pengkajian.assesment.diagnosa_utama.deskripsi = diagnosaPrimerObj.nama_sebab_sakit;
+        // }
+        
+        //hasil lab
+        var hasil_lab = data.external_link.hasil_lab_data?.map(obj => obj.hasil_laboratorium?.map(el => {
+            const container = {};
+            container.hasil = ` (${el.item_laboratorium} : ${el.hasil || ""} ${el.nama_satuan || ""},  Abnormal : ${el.abnormal || "-"}, catatan : ${el.catatan || "-"} )` 
+            
+            return container
+        }));
+        
+        if(hasil_lab != null){
+            const hasil_lab_view_raw = hasil_lab?.map(val => val.map( vul => vul.hasil))
+            var div = document.createElement("div");
+            div.innerHTML =  hasil_lab_view_raw.toString();
+            var hasil_lab_view = div.textContent || div.innerText || "";
+            
+            data.medis.pengkajian.pemeriksaan_penunjang.laboratorium = hasil_lab_view 
+        } else {
+            data.medis.pengkajian.pemeriksaan_penunjang.laboratorium = ""
+        }
+        
+        
+        // ini buat radiologi
+        const kondisi_radiologi = data.external_link.hasil_radiologi_data[0].nama_layanan
+        
+        const hasil_radio_raw = data.external_link.hasil_radiologi_data?.map(obj => {
+            const container = {};
+            container.hasil = `( ${obj.nama_layanan} = Expertise: ${obj.hasil || "" }, Kesan: ${obj.kesan || "" }, Anjuran: ${obj.anjuran || "" } )`
+            
+            return container
+        })
+        if(kondisi_radiologi != ""){
+            const hasil_radio_view_raw = hasil_radio_raw?.map(val => val.hasil)
+            var div = document.createElement("div");
+            div.innerHTML = hasil_radio_view_raw;
+            var hasil_radio = div.textContent || div.innerText || "";
+            data.medis.pengkajian.pemeriksaan_penunjang.radiologi = hasil_radio.toString()
+        } else {
+            data.medis.pengkajian.pemeriksaan_penunjang.radiologi = ""
+        }
+        
+        const dpjp = data.external_link.dokter_dpjp_data.nama_dokter_dpjp
+        data.medis.pengkajian.nama_dokter = data.external_link.dokter_dpjp_data.nama_dokter_dpjp
+        setSelect2($('#dokter_auto'), dpjp, dpjp)
+            
+    }
+    
+    function init_doc_edit(data){
+        setSelect2($('#dokter_auto'), data.medis.pengkajian.nama_dokter, data.medis.pengkajian.nama_dokter)
+    }
+    
+    function difference_checking(data){
+        var different = false
+    //   norm, nama, tgl_lahir, kelamin, klinik, igd, ruang, kelas
+        var data_pasien = data.pasien; //data.pasien tergantun dari sample data
+        var ext_px_data = data.external_link.px_data;
+        
+        var message = '<ul class="list-group list-group-flush">';
+        if(!similarity_check(ext_px_data.nama, data_pasien.nama)){
+            message += difference_message(ext_px_data.nama, data_pasien.nama)
+            different = true;
+        }
+        if(!similarity_check(ext_px_data.kelamin, data_pasien.kelamin)){
+            message += difference_message(ext_px_data.kelamin, data_pasien.kelamin)
+            different = true;
+        }
+        if(!similarity_check(ext_px_data.tanggal_lahir, data_pasien.tgl_lahir)){
+            message += difference_message(ext_px_data.tanggal_lahir, data_pasien.tgl_lahir)
+            different = true;
+        }
+        
+        message += '</ul>';
+        
+        if(different){
+            Swal.fire({
+                title: 'Sumber Data SIMRS Berubah',
+                html: message,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Batal',
+                confirmButtonText: 'Ubah Data'
+            }).then((result) => {
+                if (result.value) {
+                data_pasien.nama = ext_px_data.nama
+                data_pasien.kelamin = ext_px_data.kelamin
+                data_pasien.tgl_lahir = ext_px_data.tanggal_lahir
+                data_pasien.tgl_lahir_indo = dateParse(new Date(data_pasien.tgl_lahir))
+                
+                Swal.fire(
+                    "Berhasil mengubah data"
+                )
+                }
+            })
+        }
+        
+    }
+    function difference_message(ext_data, init_data){
+        const message = `<li class="list-group-item">Data Nama pasien Berubah dari <b>'${init_data}'</b> menjadi <b>'${ext_data}'</b> </li>`
+        return message
+    }
+    
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</script>
+<style>
+    .border{
+    border-width: 2px !important;
+    border-color: black !important;
+    }
+    
+    .border-bottom{
+    border-width: 0 0 2px 0 !important;
+    }
 
-    <title>Formulir Kriteria Keluar / Masuk HCU</title>
+    .border-bottom-left{
+    border-width: 0 0 2px 2px !important;
+    }
 
-    <style>
-      .border{
-        border-width: 2px !important;
-        border-color: black !important;
-      }
-      
-      .border-bottom{
-        border-width: 0 0 2px 0 !important;
-      }
+    .border-right{
+    border-width: 0 2px 0 0 !important;
+    }
 
-      .border-bottom-left{
-        border-width: 0 0 2px 2px !important;
-      }
+    .border-left{
+    border-width: 0 0 0 2px !important;
+    }
 
-      .border-right{
-        border-width: 0 2px 0 0 !important;
-      }
+    #hilang-margin1, #hilang-margin2{
+    margin: 0 -15px;
+    }
 
-      .border-left{
-        border-width: 0 0 0 2px !important;
-      }
+    .edit-margin{
+    margin: 5px 0 !important;
+    }
 
-      #hilang-margin1, #hilang-margin2{
-        margin: 0 -15px;
-      }
+    h5{
+    margin: 8px 0;
+    }
 
-      .edit-margin{
-        margin: 5px 0 !important;
-      }
+    p{
+    font-size: 20px;
+    margin: 4px 0;
+    }
 
-      h5{
-        margin: 8px 0;
-      }
-
-      p{
-        font-size: 20px;
-        margin: 4px 0;
-      }
-
-      .marginan{
-        margin: 0;
-        padding: 7px 15px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="col-md-12 border">
-      <form>
-        <!-- Batas Awal Judul-->
-        <div class="row border border-bottom">
-          <div class="col-12">
-            <h5 class="text-center"><b><u>FORMULIR KRITERIA KELUAR / MASUK HCU</u></b></h5>
-          </div>
+    .marginan{
+    margin: 0;
+    padding: 7px 15px;
+    }
+</style>
+<div class="col-md-12 border">
+    <form>
+    <!-- Batas Awal Judul-->
+    <div class="row border border-bottom">
+        <div class="col-12">
+        <h5 class="text-center"><b><u>FORMULIR KRITERIA KELUAR / MASUK HCU</u></b></h5>
         </div>
-        <!-- Batas Akhir Judul-->
-        <!-- Batas Awal Indentitas Pasien-->
-        <div class="form-group row border border-bottom" id="hilang-margin1">
-          <label for="no_rekam_medis" class="col-sm-3 col-form-label edit-margin">Nomor Rekam Medis </label>
-          <div class="col-sm-1 align-self-center">:</div>
-          <input type="text" class="form-control-plaintext col-sm-7 edit-margin" id="no_rekam_medis" v-model="pasien.no_rm" readonly>
-          <label for="nama_pasien" class="col-3 col-form-label edit-margin">Nama Pasien</label>
-          <div class="col-sm-1 align-self-center">:</div>
-          <input type="text" class="form-control-plaintext col-sm-7 edit-margin" id="nama_pasien" v-model="pasien.nama" readonly>
-          <label for="tanggal_lahir" class="col-3 col-form-label edit-margin">Tanggal Lahir</label>
-          <div class="col-sm-1 align-self-center">:</div>
-          <input type="text" class="form-control-plaintext col-sm-7 edit-margin" id="tanggal_lahir" v-model="pasien.tgl_lahir" readonly>
-        </div>
-        <!-- Batas Akhir Identitas Pasien-->
-        <!-- Batas Awal Waktu Asesmen-->
-        <div class="form-group row border border-bottom" id="hilang-margin2">
-          <label for="tanggal_asesmen" class="col-sm-3 col-form-label edit-margin">Asesmen Awal/Ulang Tanggal</label>
-          <div class="col-sm-1 align-self-center">:</div>
-          <input type="date" class="form-control-date col-sm-6 edit-margin">
-          <label for="pukul_asesmen" class="col-sm-3 col-form-label edit-margin">Pukul</label>
-          <div class="col-sm-1 align-self-center">:</div>
-          <input type="text" class="form-control-text col-sm-6 edit-margin">
-        </div>
-        <!-- Batas Akhir Waktu Asesmen-->
-        <!-- Judul Kriteria Masuk HCU-->
-        <div class="row border border-bottom">
-          <div class="col-md-12">
-            <h5><b>KRITERIA MASUK HCU</b></h5>
-          </div>
-        </div>
-        <!-- Batas Awal Kriteria Masuk HCU-->
-        <div class="row border border-bottom" style="padding: 0 20px">
-          <p><b>1. Sistem Kardiovaskuler</b></p>
-          <div class="form-check col-md-12">
-            <input class="form-check-input" type="checkbox" id="check-k-1">
-            <label class="form-check-label col-5" for="check-k-1">
-              Miokard Infark dengan Hemodiamika Stabil
-            </label>
-            <input class="form-check-input" type="checkbox" id="check-k-2">
-            <label class="form-check-label col-6" for="check-k-2">
-              Gangguan irama jantung dengan hemodinamika stabil
-            </label>
-          </div>
-          <div class="form-check col-md-12">
-            <input class="form-check-input" type="checkbox" id="check-k-3">
-            <label class="form-check-label col-5" for="check-k-3">
-              Gangguan jantung kongestif dengan NYHA 1 & 2
-            </label>
-            <input class="form-check-input" type="checkbox" id="check-k-4">
-            <label class="form-check-label col-6" for="check-k-4">
-              Hipertensi "Urgensi" tanpa ada gagal target organ
-            </label>
-          </div>
-          <div class="form-check col-md-12">
-            <input class="form-check-input" type="checkbox" id="check-k-5">
-            <label class="form-check-label col-11" for="check-k-5">
-              Semua jenis syok
-            </label>
-          </div>
-          <p><b>2. Sistem Pernafasan</b></p>
-          <div class="form-check col-md-12">
-            <input class="form-check-input" type="checkbox" id="check-p1-1">
-            <label class="form-check-label col-12" for="check-p1-1">
-              Gangguan pernafasan yang memerlukan fisioterapi intensif dan agresif namun tidak memerlukan alat bantu nafas
-            </label>
-          </div>
-          <p><b>3. Sistem Syaraf</b></p>
-          <div class="form-check col-md-12">
-            <input class="form-check-input" type="checkbox" id="check-s-1">
-            <label class="form-check-label col-12" for="check-s-1">
-              Cedera kepala sedang sampai berat/stroke yangs stabil dan memerlukan tirah baring dan memerlukan jalan nafas secara khusus, seperti hisap lendir berkala
-            </label>
-          </div>
-          <div class="form-check col-md-12">
-            <input class="form-check-input" type="checkbox" id="check-s-2">
-            <label class="form-check-label col-12" for="check-s-2">
-              Cedera tulang belakang bagian leher yang stabil
-            </label>
-          </div>
-          <p><b>4. Sistem Pencernaan</b></p>
-          <div class="form-check col-md-12">
-            <input class="form-check-input" type="checkbox" id="check-p2-1">
-            <label class="form-check-label col-12" for="check-p2-1">
-              Pendarahan saluran cerna bagian atas tanpa hipotensi ortostatik dan respon baik terhadap pemberian cairan
-            </label>
-          </div>
-          <p><b>5. Sistem Endokrim</b></p>
-          <div class="form-check col-md-12">
-            <input class="form-check-input" type="checkbox" id="check-e-1">
-            <label class="form-check-label col-12" for="check-e-1">
-              Krisis "Hiperglikemia" yang memerlukan infus insulin yang konstan
-            </label>
-          </div>
-          <p><b>6. Bedah</b></p>
-          <div class="form-check col-md-12">
-            <input class="form-check-input" type="checkbox" id="check-b-1">
-            <label class="form-check-label col-12" for="check-b-1">
-              Paska operasi bedah besar dengan hemodimanik stabil tapi masih memerlukan resusitasi cairan
-          </div>
-          <div class="form-check col-md-12">
-            <input class="form-check-input" type="checkbox" id="check-b-2">
-            <label class="form-check-label col-12" for="check-b-2">
-              Paska Operasi bedah besar dengan hemodimanik
-            </label>
-          </div>
-          <div class="form-check col-md-12">
-            <input class="form-check-input" type="checkbox" id="check-b-3">
-            <label class="form-check-label col-12" for="check-b-3">
-              Pasien syok karena pendarahan
-            </label>
-          </div>
-          <p><b>7. Kebidanan dan Kandungan</b></p>
-          <div class="form-check col-md-12">
-            <input class="form-check-input" type="checkbox" id="check-kk-1">
-            <label class="form-check-label col-12" for="check-kk-1">
-              Eklamsi/Preeklamsia pada persalinan atau pasca persalinan
-            </label>
-          </div>
-          <div class="form-check col-md-12">
-            <input class="form-check-input" type="checkbox" id="check-kk-2">
-            <label class="form-check-label col-12" for="check-kk-2">
-              Pasien syok karena permasalahan Obsgyn
-            </label>
-          </div>
-          <p><b>8. Pasien Non-Transportable</b></p>
-          <div class="form-check col-md-12">
-            <input class="form-check-input" type="checkbox" id="check-nt-1">
-            <label class="form-check-label col-12" for="check-nt-1">
-              Pasien yang telah dinyatakan terminal namun termasuk kriteria non-transportable dengan informed consent terlebih dahulu
-            </label>
-          </div>
-        </div>
-        <!--Batas Akhir Kriteria Masuk HCU-->
-        <!--Batas Awal Kriteria Keluar HCU-->
-        <div class="row border border-bottom" style="padding-left: 15px">
-          <h5><b>KRITERIA KELUAR HCU</b></h5>
-        </div>
-        <div class="row border border-bottom">
-          <h5 class="col text-center marginan border border-bottom"> Pasien Stabil</h5>
-          <h5 class="col text-center marginan border border-bottom-left"> Pasien Perburukan</h5>
-          <div class="form-check col-md-12">
-            <input class="form-check-input" type="checkbox" id="check-sta-1" style="margin-left: -10px;">
-            <label class="form-check-label col-6 border border-right" for="check-sta-1">
-              Tidak ada ancaman sumbatan jalan nafas
-            </label>
-            <input class="form-check-input" type="checkbox" id="check-per-1" style="margin-left: 5px;">
-            <label class="form-check-label col-5" for="check-per-1" style="margin-left: 25px;">
-              Ada ancaman sumbatan jalan nafas
-            </label>
-          </div>
-          <div class="form-check col-md-12">
-            <input class="form-check-input" type="checkbox" id="check-sta-2" style="margin-left: -10px;">
-            <label class="form-check-label col-6 border border-right" for="check-sta-2">
-              Oksigenasi adekuat 
-            </label>
-            <input class="form-check-input" type="checkbox" id="check-per-2" style="margin-left: 5px;">
-            <label class="form-check-label col-5" for="check-per-2" style="margin-left: 25px;">
-              Oksigenasi tidak adekuat 
-            </label>
-          </div>
-          <div class="form-check col-md-12">
-            <input class="form-check-input" type="checkbox" id="check-sta-3" style="margin-left: -10px;">
-            <label class="form-check-label col-6 border border-right" for="check-sta-3">
-              Tidak dalam keadaan syok 
-            </label>
-            <input class="form-check-input" type="checkbox" id="check-per-3" style="margin-left: 5px;">
-            <label class="form-check-label col-5" for="check-per-3" style="margin-left: 25px;">
-              Keadaan Syok tak terkendali 
-            </label>
-          </div>
-          <div class="form-check col-md-12">
-            <input class="form-check-input" type="checkbox" id="check-sta-4" style="margin-left: -10px;">
-            <label class="form-check-label col-6 border border-right" for="check-sta-4">
-              Tidak kejang
-            </label>
-            <input class="form-check-input" type="checkbox" id="check-per-4" style="margin-left: 5px;">
-            <label class="form-check-label col-5" for="check-per-4" style="margin-left: 25px;">
-              Kejang tanpa respon baik terhadap obat
-            </label>
-          </div>
-        </div>
-        <!--Batas Akhir Kriteria Keluar HCU-->
-        <!--Batas Awal Tindak Lanjut-->
-        <div class="row border border-bottom" style="padding-left: 15px">
-          <h5><b>TINDAK LANJUT</b></h5>
-        </div>
-        <div class="row border border-bottom">
-          <div class="form-check col-md-6 align-self-center">
-            <input class="form-check-input" type="checkbox" id="check-sta-4" style="margin-left: -10px;">
-            <label class="form-check-label row-6" for="check-sta-4" style="margin-left: 10px;">
-              Tidak kejang
-            </label>
-          </div>
-          <div class="form-check col-md-6 border border-left" style="padding-left: 10px;">
-            <input class="form-check-input" type="checkbox" id="check-per-4" style="margin-left: 5px;">
-            <label class="form-check-label row-5" for="check-per-4" style="margin-left: 25px;">
-              Kejang tanpa respon baik terhadap obat
-            </label>
-            <input class="form-check-input row" type="checkbox" id="check-per-4" style="margin-left: 5px;">
-            <label class="form-check-label row-5" for="check-per-4" style="margin-left: 25px;">
-              Kejang tanpa respon baik terhadap obat
-            </label>
-          </div>
-        </div>
-        <!--Batas Akhir Tindak Lanjut-->
-        <!--Batas Awal Tanda Tangan-->
-        <div class="row justify-content-end" style="margin-top: 50px;">
-          <div class="col">
-            <div class="form-group row justify-content-end">
-              <label class="col-sm-1 col-form-label">Bandung,</label>
-              <input type="date" class="form-control-date col-sm-2" style="margin-right: 80px;">
-            </div>
-          </div>
-          <div class="w-100"></div>
-          <div class="row justify-content-end" style="margin-right: 5px;">
-            <div>Dokter Penanggung Jawab Pasien/Dokter Jaga</div>
-          </div>
-          <div class="w-100"></div>
-          <div>(.............................................................................................)</div>
-        </div>
-      </form>
     </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
-</html>
+    <!-- Batas Akhir Judul-->
+    <!-- Batas Awal Indentitas Pasien-->
+    <div class="form-group row border border-bottom" id="hilang-margin1">
+        <label for="no_rekam_medis" class="col-sm-3 col-form-label edit-margin">Nomor Rekam Medis </label>
+        <div class="col-sm-1 align-self-center">:</div>
+        <input type="text" class="form-control-plaintext col-sm-7 edit-margin" id="no_rekam_medis" v-model="pasien.no_rm" readonly>
+        <label for="nama_pasien" class="col-3 col-form-label edit-margin">Nama Pasien</label>
+        <div class="col-sm-1 align-self-center">:</div>
+        <input type="text" class="form-control-plaintext col-sm-7 edit-margin" id="nama_pasien" v-model="pasien.nama" readonly>
+        <label for="tanggal_lahir" class="col-3 col-form-label edit-margin">Tanggal Lahir</label>
+        <div class="col-sm-1 align-self-center">:</div>
+        <input type="text" class="form-control-plaintext col-sm-7 edit-margin" id="tanggal_lahir" v-model="pasien.tgl_lahir" readonly>
+    </div>
+    <!-- Batas Akhir Identitas Pasien-->
+    <!-- Batas Awal Waktu Asesmen-->
+    <div class="form-group row border border-bottom" id="hilang-margin2">
+        <label for="tanggal_asesmen" class="col-sm-3 col-form-label edit-margin">Asesmen Awal/Ulang Tanggal</label>
+        <div class="col-sm-1 align-self-center">:</div>
+        <input type="date" class="form-control-date col-sm-6 edit-margin" v-model="medis.asesmen.tanggal_asesmen">
+        <label for="pukul_asesmen" class="col-sm-3 col-form-label edit-margin">Pukul</label>
+        <div class="col-sm-1 align-self-center">:</div>
+        <input type="text" class="form-control-text col-sm-6 edit-margin" v-model="medis.asesmen.pukul">
+    </div>
+    <!-- Batas Akhir Waktu Asesmen-->
+    <!-- Judul Kriteria Masuk HCU-->
+    <div class="row border border-bottom">
+        <div class="col-md-12">
+        <h5><b>KRITERIA MASUK HCU</b></h5>
+        </div>
+    </div>
+    <!-- Batas Awal Kriteria Masuk HCU-->
+    <div class="row border border-bottom" style="padding: 0 20px">
+        <p><b>1. Sistem Kardiovaskuler</b></p>
+        <div class="form-check col-md-12">
+        <input class="form-check-input" type="checkbox" id="check-k-1" v-model="medis.kriteria_masuk_HCU.sistem_kardiovaskuler.miokard">
+        <label class="form-check-label col-5" for="check-k-1">
+            Miokard Infark dengan Hemodiamika Stabil
+        </label>
+        <input class="form-check-input" type="checkbox" id="check-k-2" style="margin-left: -5px" v-model="medis.kriteria_masuk_HCU.sistem_kardiovaskuler.gangguan_irama">
+        <label class="form-check-label col-6" for="check-k-2" style="margin-left: 15px">
+            Gangguan irama jantung dengan hemodinamika stabil
+        </label>
+        </div>
+        <div class="form-check col-md-12">
+        <input class="form-check-input" type="checkbox" id="check-k-3" v-model="medis.kriteria_masuk_HCU.sistem_kardiovaskuler.gangguan_jantung">
+        <label class="form-check-label col-5" for="check-k-3">
+            Gangguan jantung kongestif dengan NYHA 1 & 2
+        </label>
+        <input class="form-check-input" type="checkbox" id="check-k-4" style="margin-left: -5px" v-model="medis.kriteria_masuk_HCU.sistem_kardiovaskuler.hipertensi">
+        <label class="form-check-label col-6" for="check-k-4" style="margin-left: 15px">
+            Hipertensi "Urgensi" tanpa ada gagal target organ
+        </label>
+        </div>
+        <div class="form-check col-md-12">
+        <input class="form-check-input" type="checkbox" id="check-k-5" v-model="medis.kriteria_masuk_HCU.sistem_kardiovaskuler.semua_jenis">
+        <label class="form-check-label col-11" for="check-k-5">
+            Semua jenis syok
+        </label>
+        </div>
+        <p><b>2. Sistem Pernafasan</b></p>
+        <div class="form-check col-md-12">
+        <input class="form-check-input" type="checkbox" id="check-p1-1" v-model="medis.kriteria_masuk_HCU.sistem_pernafasan.gangguan_pernafasan">
+        <label class="form-check-label col-12" for="check-p1-1">
+            Gangguan pernafasan yang memerlukan fisioterapi intensif dan agresif namun tidak memerlukan alat bantu nafas
+        </label>
+        </div>
+        <p><b>3. Sistem Syaraf</b></p>
+        <div class="form-check col-md-12">
+        <input class="form-check-input" type="checkbox" id="check-s-1" v-model="medis.kriteria_masuk_HCU.sistem_syaraf.cedera_kepala">
+        <label class="form-check-label col-12" for="check-s-1">
+            Cedera kepala sedang sampai berat/stroke yangs stabil dan memerlukan tirah baring dan memerlukan jalan nafas secara khusus, seperti hisap lendir berkala
+        </label>
+        </div>
+        <div class="form-check col-md-12">
+        <input class="form-check-input" type="checkbox" id="check-s-2" v-model="medis.kriteria_masuk_HCU.sistem_syaraf.cedera_tulang">
+        <label class="form-check-label col-12" for="check-s-2">
+            Cedera tulang belakang bagian leher yang stabil
+        </label>
+        </div>
+        <p><b>4. Sistem Pencernaan</b></p>
+        <div class="form-check col-md-12">
+        <input class="form-check-input" type="checkbox" id="check-p2-1" v-model="medis.kriteria_masuk_HCU.sistem_pencernaan.pendarahan_saluran">
+        <label class="form-check-label col-12" for="check-p2-1">
+            Pendarahan saluran cerna bagian atas tanpa hipotensi ortostatik dan respon baik terhadap pemberian cairan
+        </label>
+        </div>
+        <p><b>5. Sistem Endokrim</b></p>
+        <div class="form-check col-md-12">
+        <input class="form-check-input" type="checkbox" id="check-e-1" v-model="medis.kriteria_masuk_HCU.sistem_endokrin.krisis_hiperglikemia">
+        <label class="form-check-label col-12" for="check-e-1">
+            Krisis "Hiperglikemia" yang memerlukan infus insulin yang konstan
+        </label>
+        </div>
+        <p><b>6. Bedah</b></p>
+        <div class="form-check col-md-12">
+        <input class="form-check-input" type="checkbox" id="check-b-1" v-model="medis.kriteria_masuk_HCU.bedah.perlu_resusitasi">
+        <label class="form-check-label col-12" for="check-b-1">
+            Paska operasi bedah besar dengan hemodimanik stabil tapi masih memerlukan resusitasi cairan
+        </div>
+        <div class="form-check col-md-12">
+        <input class="form-check-input" type="checkbox" id="check-b-2" v-model="medis.kriteria_masuk_HCU.bedah.hemodinamik">
+        <label class="form-check-label col-12" for="check-b-2">
+            Paska Operasi bedah besar dengan hemodimanik
+        </label>
+        </div>
+        <div class="form-check col-md-12">
+        <input class="form-check-input" type="checkbox" id="check-b-3" v-model="medis.kriteria_masuk_HCU.bedah.pasien_syok_pendarahan">
+        <label class="form-check-label col-12" for="check-b-3">
+            Pasien syok karena pendarahan
+        </label>
+        </div>
+        <p><b>7. Kebidanan dan Kandungan</b></p>
+        <div class="form-check col-md-12">
+        <input class="form-check-input" type="checkbox" id="check-kk-1" v-model="medis.kriteria_masuk_HCU.kebidanan_dan_kandungan.eklamsi">
+        <label class="form-check-label col-12" for="check-kk-1">
+            Eklamsi/Preeklamsia pada persalinan atau pasca persalinan
+        </label>
+        </div>
+        <div class="form-check col-md-12">
+        <input class="form-check-input" type="checkbox" id="check-kk-2" v-model="medis.kriteria_masuk_HCU.kebidanan_dan_kandungan.pasien_syok_obsgyn">
+        <label class="form-check-label col-12" for="check-kk-2">
+            Pasien syok karena permasalahan Obsgyn
+        </label>
+        </div>
+        <p><b>8. Pasien Non-Transportable</b></p>
+        <div class="form-check col-md-12">
+        <input class="form-check-input" type="checkbox" id="check-nt-1" v-model="medis.kriteria_masuk_HCU.pasien_nontransportable.kriteria_nontransportable">
+        <label class="form-check-label col-12" for="check-nt-1">
+            Pasien yang telah dinyatakan terminal namun termasuk kriteria non-transportable dengan informed consent terlebih dahulu
+        </label>
+        </div>
+    </div>
+    <!--Batas Akhir Kriteria Masuk HCU-->
+    <!--Batas Awal Kriteria Keluar HCU-->
+    <div class="row border border-bottom" style="padding-left: 15px">
+        <h5><b>KRITERIA KELUAR HCU</b></h5>
+    </div>
+    <div class="row border border-bottom">
+        <h5 class="col text-center marginan border border-bottom"> Pasien Stabil</h5>
+        <h5 class="col text-center marginan border border-bottom-left"> Pasien Perburukan</h5>
+        <div class="form-check col-md-12">
+        <input class="form-check-input" type="checkbox" id="check-sta-1" style="margin-left: -10px;" v-model="medis.kriteria_keluar_HCU.pasien_stabil.tidak_ada_ancaman">
+        <label class="form-check-label col-6 border border-right" for="check-sta-1">
+            Tidak ada ancaman sumbatan jalan nafas
+        </label>
+        <input class="form-check-input" type="checkbox" id="check-per-1" style="margin-left: 5px;" v-model="medis.kriteria_keluar_HCU.pasien_perburukan.ada_ancaman">
+        <label class="form-check-label col-5" for="check-per-1" style="margin-left: 25px;">
+            Ada ancaman sumbatan jalan nafas
+        </label>
+        </div>
+        <div class="form-check col-md-12">
+        <input class="form-check-input" type="checkbox" id="check-sta-2" style="margin-left: -10px;" v-model="medis.kriteria_keluar_HCU.pasien_stabil.oksigenasi_adekuat">
+        <label class="form-check-label col-6 border border-right" for="check-sta-2">
+            Oksigenasi adekuat 
+        </label>
+        <input class="form-check-input" type="checkbox" id="check-per-2" style="margin-left: 5px;" v-model="medis.kriteria_keluar_HCU.pasien_perburukan.oksigenasi_tidak_adekuat">
+        <label class="form-check-label col-5" for="check-per-2" style="margin-left: 25px;">
+            Oksigenasi tidak adekuat 
+        </label>
+        </div>
+        <div class="form-check col-md-12">
+        <input class="form-check-input" type="checkbox" id="check-sta-3" style="margin-left: -10px;" v-model="medis.kriteria_keluar_HCU.pasien_stabil.tidak_syok">
+        <label class="form-check-label col-6 border border-right" for="check-sta-3">
+            Tidak dalam keadaan syok 
+        </label>
+        <input class="form-check-input" type="checkbox" id="check-per-3" style="margin-left: 5px;" v-model="medis.kriteria_keluar_HCU.pasien_perburukan.syok_tak_terkendali">
+        <label class="form-check-label col-5" for="check-per-3" style="margin-left: 25px;">
+            Keadaan Syok tak terkendali 
+        </label>
+        </div>
+        <div class="form-check col-md-12">
+        <input class="form-check-input" type="checkbox" id="check-sta-4" style="margin-left: -10px;" v-model="medis.kriteria_keluar_HCU.pasien_stabil.tidak_kejang">
+        <label class="form-check-label col-6 border border-right" for="check-sta-4">
+            Tidak kejang
+        </label>
+        <input class="form-check-input" type="checkbox" id="check-per-4" style="margin-left: 5px;" v-model="medis.kriteria_keluar_HCU.pasien_perburukan.kejang">
+        <label class="form-check-label col-5" for="check-per-4" style="margin-left: 25px;">
+            Kejang tanpa respon baik terhadap obat
+        </label>
+        </div>
+    </div>
+    <!--Batas Akhir Kriteria Keluar HCU-->
+    <!--Batas Awal Tindak Lanjut-->
+    <div class="row border border-bottom" style="padding-left: 15px">
+        <h5><b>TINDAK LANJUT</b></h5>
+    </div>
+    <div class="row border border-bottom">
+        <div class="form-check col-md-6 align-self-center">
+        <input class="form-check-input" type="checkbox" id="check-sta-4" style="margin-left: -10px;" v-model="medis.tindak_lanjut.pindah">
+        <label class="form-check-label row-6" for="check-sta-4" style="margin-left: 10px;">
+            Pindah ke ruangan inap biasa
+        </label>
+        </div>
+        <div class="col-md-6">
+        <div class="form-check col-md-6 border border-left" style="padding-left: 10px;">
+            <input class="form-check-input" type="checkbox" id="check-per-4" style="margin-left: 5px;" v-model="medis.tindak_lanjut.tindakan_lifesaving">
+            <label class="form-check-label row-6" for="check-per-4" style="margin-left: 25px;">
+            Tindakan life-saving
+            </label>
+            <input class="form-check-input row" type="checkbox" id="check-per-4" style="margin-left: 5px;" v-model="medis.tindak_lanjut.rujuk">
+            <label class="form-check-label row-6" for="check-per-4" style="margin-left: 25px;">
+            Rujuk ke ICU
+            </label>
+        </div>
+        </div>
+    </div>
+    <!--Batas Akhir Tindak Lanjut-->
+    <!--Batas Awal Tanda Tangan-->
+    <div class="row justify-content-end" style="margin-top: 50px;">
+        <div class="col">
+        <div class="form-group row justify-content-end">
+            <label class="col-sm-1 col-form-label" style="margin-right: 10px;">Bandung,</label>
+            <input type="date" class="form-control-date col-sm-2" style="margin-right: 80px;" v-model="medis.selesai_tanggal" @change="onChDateDynamic($event, 'selesai_tanggal')">
+        </div>
+        </div>
+        <div class="w-100"></div>
+        <div class="row justify-content-end" style="margin-right: 5px;">
+        <div>Dokter Penanggung Jawab Pasien/Dokter Jaga</div>
+        </div>
+        <div class="w-100"></div>
+        <div class="row justify-content-end" style="margin-right: 5px;">
+        <label class="col-sm-1 col-form-label justify-self-start">(</label>
+        <input type="text" class="col-sm-9 form-control-text" v-model="medis.nama_dokter">   
+        <label class="col-sm-1 col-form-label">)</label>       
+        </div>
+    </div>
+    <div class="form-group row mt-5 text-center">
+        <div class="col-md-12">
+            <button type="button" v-on:click="saveDoc" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
+            <button type="button" v-on:click="checkData" class="btn btn-success prod_hidden"><i class="fa fa-check-square-o"></i> Check Data</button>
+        </div>
+    </div>
+    </form>
+</div>
